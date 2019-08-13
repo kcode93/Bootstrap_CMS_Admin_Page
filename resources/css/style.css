@@ -2,6 +2,8 @@
     --primary-color: #3c7ec9;
     --primary-color-hover: #1e64b3;
     --light-color: #f4f4f4;
+    --white-color: #fff;
+    --black-color: #000;
 }
 
 html{
@@ -16,7 +18,7 @@ body{
 
 /**************************** Navbar *********************************/
 .navbar{
-    min-height: 33px !important;
+    min-height: 3rem !important;
     margin-bottom: 0 !important;
     border-radius: 0 !important;
     background-color: var(--primary-color) !important;
@@ -24,13 +26,26 @@ body{
 }
 
 .navbar-nav li a{
-    padding: 18px 8px !important;
+    padding: 1.2rem 0.5rem !important;
 }
 
 .navbar-nav li a:hover{
     background-color: var(--primary-color-hover);
 }
 
+/**************************** Header *********************************/
+
+header{
+    padding: 1rem;
+}
+
+header h1{
+    font-size: 2rem;
+}
+
+header small{
+    font-size: 1.2rem;
+}
 
 
 
