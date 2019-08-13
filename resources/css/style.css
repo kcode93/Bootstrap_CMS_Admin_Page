@@ -47,6 +47,15 @@ header small{
     font-size: 1.2rem;
 }
 
+header .btn{
+    background-color: var(--primary-color) !important;
+}
+
+header .btn:hover, .dropdown a:hover{
+    background-color: var(--primary-color-hover) !important;
+    color: var(--white-color) !important;
+}
+
 
 
 
