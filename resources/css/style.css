@@ -1,4 +1,6 @@
 :root{
+    --primary-color: #3c7ec9;
+    --primary-color-hover: #1e64b3;
     --light-color: #f4f4f4;
 }
 
@@ -6,3 +8,32 @@ html{
     font-size: 16px;
     font-family: 'Raleway', sans-serif;
 }
+
+/**************************** Global *********************************/
+body{
+    background-color: var(--light-color); 
+}
+
+/**************************** Navbar *********************************/
+.navbar{
+    min-height: 33px !important;
+    margin-bottom: 0 !important;
+    border-radius: 0 !important;
+    background-color: var(--primary-color) !important;
+    font-size: 1.2rem;
+}
+
+.navbar-nav li a{
+    padding: 18px 8px !important;
+}
+
+.navbar-nav li a:hover{
+    background-color: var(--primary-color-hover);
+}
+
+
+
+
+
+
+
