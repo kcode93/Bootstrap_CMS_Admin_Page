@@ -37,7 +37,6 @@ body{
 }
 
 /**************************** Header *********************************/
-
 header{
     padding: 1rem;
     background-color: var(--secondary-color);
@@ -67,7 +66,36 @@ header .btn:hover, .dropdown a:hover{
     color: var(--breadcrumb-contrast-color);
 }
 
+/**************************** Main ***************************************/
+.main i span{
+    font-family: 'Raleway', sans-serif !important;
+}
 
+.main .list-group .active{
+    background-color: var(--primary-color);
+    color: var(--white-color);
+}
+
+.main .list-group .badge{
+    background-color: var(--secondary-color);
+    color: var(--white-color);
+    padding: 0.5rem;
+    font-weight: bold !important;
+    
+}
+
+.main h4{
+    margin: 0.5rem 0;
+}
+
+.progress{
+    margin: 0.5rem 0 !important;
+    font-size: 0.9rem;
+}
+
+.progress .progress-bar{
+    padding: 0.2rem !important; 
+}
 
 
 
