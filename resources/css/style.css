@@ -1,7 +1,7 @@
 :root{
-    --primary-color: #316fbd;
-    --primary-color-hover: #3b80d7;
-    --secondary-color: #BD7F31;
+    --primary-color: #017B81 ;
+    --primary-color-hover: #07949b;
+    --secondary-color: #810701;
     --breacrumb-color: #ccc;
     --breadcrumb-contrast-color: #333;
     --light-color: #f4f4f4;
@@ -94,6 +94,7 @@ header .btn:hover, .dropdown a:hover{
 .main .list-group .active{
     background-color: var(--primary-color);
     color: var(--white-color);
+    border-color: var(--primary-color);
 }
 
 .main .list-group .badge{
