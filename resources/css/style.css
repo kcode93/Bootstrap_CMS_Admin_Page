@@ -19,6 +19,16 @@ body{
     background-color: var(--light-color); 
 }
 
+.bg-primary-color{
+    background-color: var(--primary-color);
+    color: var(--white-color);
+}
+
+.bg-secondary-color{
+    background-color: var(--secondary-color);
+    color: var(--white-color);
+}
+
 /**************************** Navbar *********************************/
 .navbar{
     min-height: 3rem !important;
@@ -62,6 +72,8 @@ header .btn:hover, .dropdown a:hover{
 
 /**************************** Breadcrumb *********************************/
 .breadcrumb{
+    margin-top: 1rem;
+    padding: 1.1rem;
     background-color: var(--breacrumb-color);
     color: var(--breadcrumb-contrast-color);
 }
