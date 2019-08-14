@@ -1,6 +1,7 @@
 :root{
-    --primary-color: #3c7ec9;
-    --primary-color-hover: #1e64b3;
+    --primary-color: #316fbd;
+    --primary-color-hover: #3b80d7;
+    --secondary-color: #BD7F31;
     --light-color: #f4f4f4;
     --white-color: #fff;
     --black-color: #000;
@@ -37,6 +38,8 @@ body{
 
 header{
     padding: 1rem;
+    background-color: var(--secondary-color);
+    color: var(--white-color);
 }
 
 header h1{
