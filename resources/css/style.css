@@ -2,6 +2,8 @@
     --primary-color: #316fbd;
     --primary-color-hover: #3b80d7;
     --secondary-color: #BD7F31;
+    --breacrumb-color: #ccc;
+    --breadcrumb-contrast-color: #333;
     --light-color: #f4f4f4;
     --white-color: #fff;
     --black-color: #000;
@@ -59,6 +61,11 @@ header .btn:hover, .dropdown a:hover{
     color: var(--white-color) !important;
 }
 
+/**************************** Breadcrumb *********************************/
+.breadcrumb{
+    background-color: var(--breacrumb-color);
+    color: var(--breadcrumb-contrast-color);
+}
 
 
 
