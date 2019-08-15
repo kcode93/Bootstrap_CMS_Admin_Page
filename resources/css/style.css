@@ -2,6 +2,7 @@
     --primary-color: #017B81 ;
     --primary-color-hover: #07949b;
     --secondary-color: #810701;
+    --secondary-color-hover: #960b09;
     --breacrumb-color: #ccc;
     --breadcrumb-contrast-color: #333;
     --light-color: #f4f4f4;
@@ -22,11 +23,21 @@ body{
 .bg-primary-color{
     background-color: var(--primary-color) !important;
     color: var(--white-color) !important;
+    border-color: var(--primary-color) !important;
+}
+
+.bg-primary-color:hover{
+    background-color: var(--primary-color-hover) !important;
 }
 
 .bg-secondary-color{
     background-color: var(--secondary-color) !important;
     color: var(--white-color) !important;
+    border-color: var(--secondary-color) !important;
+}
+
+.bg-secondary-color:hover{
+    background-color: var(--secondary-color-hover) !important;
 }
 
 .bold{
@@ -158,5 +169,10 @@ footer{
 
 #addPost #attach i{
     margin: auto 0.5rem;
+}
+
+/**************************** addUser Modal ***************************************/
+#addUser label{
+    margin: 0.5rem 0;
 }
 
