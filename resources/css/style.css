@@ -147,6 +147,10 @@ footer{
     margin: 1rem 0;
 }
 
+#addPage label{
+    margin-bottom: 0.5rem;
+}
+
 /**************************** addPost Modal ***************************************/
 #addPost #attach{
     margin: 0.5rem 0;
