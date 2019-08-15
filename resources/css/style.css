@@ -1,4 +1,5 @@
 :root{
+    /* Colors */
     --primary-color: #017B81 ;
     --primary-color-hover: #07949b;
     --secondary-color: #810701;
@@ -8,6 +9,10 @@
     --light-color: #f4f4f4;
     --white-color: #fff;
     --black-color: #000;
+
+    /* Measurements */
+    --header-title-gap: 0.5rem;
+
 }
 
 html{
@@ -176,3 +181,28 @@ footer{
     margin: 0.5rem 0;
 }
 
+/**************************** Media Queries ***************************************/
+ 
+/* Extra small devices (portrait phones, less than 576px) */
+@media (max-width: 575.98px) {
+    #header-title{ 
+        margin-bottom: var(--header-title-gap) !important;
+    }    
+}
+
+/* Small devices (landscape phones, less than 768px) */
+@media (max-width: 767.98px) {
+    #header-title{ 
+        margin-bottom: var(--header-title-gap) !important;
+    } 
+}
+
+/* Medium devices (tablets, less than 992px) 
+@media (max-width: 991.98px) { 
+
+}*/
+
+/* Large devices (desktops, less than 1200px)
+@media (max-width: 1199.98px) {
+
+}*/
