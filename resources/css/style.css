@@ -147,4 +147,12 @@ footer{
     margin: 1rem 0;
 }
 
+/**************************** addPost Modal ***************************************/
+#addPost #attach{
+    margin: 0.5rem 0;
+}
+
+#addPost #attach i{
+    margin: auto 0.5rem;
+}
 
