@@ -59,13 +59,14 @@
                     <div class="col-md-10">
                         <h1><i class="fas fa-cog"></i> Dashboard <small>Manage Your Site</small></h1>
                     </div><!--end of col-md-10-->
+
                     <div class="col-md-2">
                         <div class="dropdown">
                             <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 Add Content
                             </a>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                <a class="dropdown-item" href="#"><i class="fas fa-plus-circle"></i>&nbsp;&nbsp;Add Page</a>
+                                <a type="button" class="dropdown-item" data-toggle="modal" data-target="#addPage"><i class="fas fa-plus-circle"></i>&nbsp;&nbsp;Add Page</a>
                                 <a class="dropdown-item" href="#"><i class="fas fa-plus-circle"></i>&nbsp;&nbsp;Add Post</a>
                                 <a class="dropdown-item" href="#"><i class="fas fa-plus-circle"></i>&nbsp;&nbsp;Add User</a>
                             </div>
@@ -112,6 +113,7 @@
                             </div><!--end of progess-->
                         </div><!--end of well-->
                     </div><!--end of col-md-3-->
+
                     <div class="col-md-9">
                         <ol class="breadcrumb d-flex justify-content-center bg-primary-color">
                             <li class="active bold">Website Overview</li>
@@ -177,6 +179,27 @@
                 </div><!--end of row-->
             </div><!--end of container-->
         </section><!--end of main-->
+
+        <!-- Add Page Modal -->
+        <div class="modal fade" id="addPage" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        ...
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Save changes</button>
+                    </div>
+                </div>
+            </div>
+        </div><!--end of modal-->
 
         <!--JQuery CDN-->
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" 
