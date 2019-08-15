@@ -133,5 +133,18 @@ header .btn:hover, .dropdown a:hover{
     margin: 1rem 0;
 }
 
+/**************************** footer ***************************************/
+footer{
+   background-color: var(--secondary-color);
+   color: var(--white-color);
+   padding: 2rem;
+   text-align: center;
+   margin-top: 2rem; 
+}
+
+/**************************** addPage Modal ***************************************/
+#addPage .checkbox{
+    margin: 1rem 0;
+}
 
 
