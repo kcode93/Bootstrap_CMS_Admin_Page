@@ -53,6 +53,20 @@ body{
     font-family: 'Open Sans', sans-serif;
 }
 
+/**************************** Login *********************************/
+#login nav h1{
+    margin-left: 1.3rem !important;
+}
+
+#login{
+    margin: 10rem 0;
+}
+
+#login label{
+    margin-bottom: 0.5rem;
+}
+
+
 /**************************** Navbar *********************************/
 .navbar{
     min-height: 3rem !important;
