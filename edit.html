@@ -21,7 +21,7 @@
         <!--Custome CSS-->
         <link rel="stylesheet" href="./resources/css/reset.css" type="text/css">
         <link rel="stylesheet" href="./resources/css/style.css" type="text/css">
-        <title>AdminCMS | Pages</title>
+        <title>AdminCMS | Edit Page</title>
     </head>
     <body>
         <nav class="navbar navbar-expand-md navbar-dark">
@@ -34,7 +34,7 @@
                     <li class="nav-item">
                         <a class="nav-link" href="index.html">Dashboard <span class="sr-only">(current)</span></a>
                     </li>
-                    <li class="nav-item active">
+                    <li class="nav-item">
                         <a class="nav-link" href="pages.html">Pages</a>
                     </li>
                     <li class="nav-item">
@@ -59,7 +59,7 @@
             <div class="container">
                 <div class="row">
                     <div id="header-title" class="col-md-10">
-                        <h1><i class="far fa-file"></i> Pages <small>Manage Your Site Pages</small></h1>
+                        <h1><i class="fas fa-pencil-alt"></i> Edit <small>Home</small></h1>
                     </div><!--end of col-md-10-->
 
                     <div class="col-md-2">
@@ -81,7 +81,7 @@
         <section id="breadcrumb">
             <div class="container">
                 <ol class="breadcrumb">
-                    <li class="active">Pages</li>
+                    <li class="active"><a href="pages.html"><i class="fas fa-arrow-left"></i> Back to Pages</a></li>
                 </ol><!--end of breadcrumb-o-list-->
             </div><!--end of container-->
         </section><!--end of breadcrumb-->
@@ -118,62 +118,31 @@
 
                     <div class="col-md-9">
                         <ol class="breadcrumb d-flex justify-content-center bg-primary-color">
-                            <li class="active bold"> Your Site Pages</li>
+                            <li class="active bold"> Edit this Page</li>
                         </ol><!--end of breadcrumb-o-list-->
                         <div class="card">
-                            <div class="row">
-                                <div id="filter-page" class="col-md-12">
-                                    <input class="form-control" type="text" placeholder="Filter Pages...">
-                                </div><!--end of col-md-12-->
-                            </div><!--end of row-->
-                            <table class="table table-striped table-hover text-center">
-                                <thead>
-                                    <tr>
-                                    <th scope="col" class="bold">Title</th>
-                                    <th scope="col" class="bold">Published</th>
-                                    <th scope="col" class="bold">Created</th>
-                                    <th></th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <th scope="row" class="align-middle">Home</th>
-                                        <td class="align-middle"><i class="fas fa-check"></i></td>
-                                        <td class="align-middle">Dec 12, 2016</td>
-                                        <td>
-                                            <a class="btn bg-primary-color" href="edit.html"><i class="fas fa-pencil-alt"></i> Edit</a>
-                                            <a href="#" class="btn bg-secondary-color"><i class="fas fa-trash-alt"></i> Delete</a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row" class="align-middle">About</th>
-                                        <td class="align-middle"><i class="fas fa-check"></i></td>
-                                        <td class="align-middle">Dec 12, 2016</td>
-                                        <td>
-                                            <a class="btn bg-primary-color" href="edit.html"><i class="fas fa-pencil-alt"></i> Edit</a>
-                                            <a href="#" class="btn bg-secondary-color"><i class="fas fa-trash-alt"></i> Delete</a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row" class="align-middle">Services</th>
-                                        <td class="align-middle"><i class="fas fa-check"></i></td>
-                                        <td class="align-middle">Dec 12, 2016</td>
-                                        <td>
-                                            <a class="btn bg-primary-color" href="edit.html"><i class="fas fa-pencil-alt"></i> Edit</a>
-                                            <a href="#" class="btn bg-secondary-color"><i class="fas fa-trash-alt"></i> Delete</a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row" class="align-middle">Contact</th>
-                                        <td class="align-middle"><i class="fas fa-times"></i></td>
-                                        <td class="align-middle">Dec 12, 2016</td>
-                                        <td>
-                                            <a class="btn bg-primary-color" href="edit.html"><i class="fas fa-pencil-alt"></i> Edit</a>
-                                            <a href="#" class="btn bg-secondary-color"><i class="fas fa-trash-alt"></i> Delete</a>
-                                        </td>
-                                    </tr>        
-                                </tbody>
-                            </table>
+                            <form>
+                                <div class="form-group">
+                                    <label>Page Title</label>
+                                    <input type="text" class="form-control" placeholder="Page Title">
+                                </div><!--end of form-group-->
+                                <div class="form-group">
+                                    <label>Page Body</label>
+                                    <textarea class="form-control" name="editor1" placeholder="Page Body"></textarea>
+                                </div><!--end of form-group-->
+                                <div class="checkbox">
+                                    <label><input type="checkbox">Published</label>
+                                </div><!--end of checkbox-->
+                                <div class="form-group">
+                                    <label>Meta Tags</label>
+                                    <input type="text" class="form-control" placeholder="Add some Tags...">
+                                </div><!--end of form-control-->
+                                <div class="form-group">
+                                    <label>Meta Description</label>
+                                    <input type="text" class="form-control" placeholder="Add Meta Description...">
+                                </div><!--end of form-control-->
+                                <button type="submit" class="btn bg-primary-color">Save changes</button>
+                            </form><!--end of form-->
                         </div><!--end of card-->
                     </div><!--end of col-md-9-->
                 </div><!--end of row-->
