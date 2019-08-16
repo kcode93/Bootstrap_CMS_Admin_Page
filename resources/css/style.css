@@ -186,6 +186,12 @@ footer{
     margin-bottom: 1rem;
 }
 
+/*************************** posts.html Main ****************************************/
+#eye{
+    font-size: 1.3rem;
+    margin-left: 0.5rem;
+}
+
 /**************************** Media Queries ***************************************/
  
 /* Extra small devices (portrait phones, less than 576px) */
