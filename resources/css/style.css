@@ -181,6 +181,11 @@ footer{
     margin: 0.5rem 0;
 }
 
+/**************************** pages.html Main ***************************************/
+#filter-page{
+    margin-bottom: 1rem;
+}
+
 /**************************** Media Queries ***************************************/
  
 /* Extra small devices (portrait phones, less than 576px) */
