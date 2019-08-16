@@ -159,11 +159,11 @@ footer{
 }
 
 /**************************** addPage Modal ***************************************/
-#addPage .checkbox{
+#addPage,#edit-page .checkbox{
     margin: 1rem 0;
 }
 
-#addPage label{
+#addPage, #edit-page label{
     margin-bottom: 0.5rem;
 }
 
