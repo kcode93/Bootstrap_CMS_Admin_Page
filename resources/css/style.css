@@ -200,11 +200,20 @@ footer{
     margin-bottom: 1rem;
 }
 
+#postsTable tbody .hid{
+    display: none;
+} 
+
 /*************************** posts.html Main ****************************************/
-#eye{
+table tbody #eye{
     font-size: 1.3rem;
     margin-left: 0.5rem;
 }
+
+table tbody .hide{
+    display: none;
+}
+
 
 /**************************** Media Queries ***************************************/
  
@@ -212,14 +221,30 @@ footer{
 @media (max-width: 575.98px) {
     #header-title{ 
         margin-bottom: var(--header-title-gap) !important;
-    }    
+    }
+    
+    .sho{
+        display: none !important;
+    }
+
+    .hid{
+        display: inline-block !important;
+    }
 }
 
 /* Small devices (landscape phones, less than 768px) */
 @media (max-width: 767.98px) {
     #header-title{ 
         margin-bottom: var(--header-title-gap) !important;
-    } 
+    }
+    
+    .sho{
+        display: none !important;
+    }
+
+    .hid{
+        display: inline-block !important;
+    }
 }
 
 /* Medium devices (tablets, less than 992px) 
