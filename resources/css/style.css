@@ -68,6 +68,10 @@ body{
 
 
 /**************************** Navbar *********************************/
+#brandName{
+    margin-left: 1rem;
+}
+
 .navbar{
     min-height: 3rem !important;
     margin-bottom: 0 !important;
