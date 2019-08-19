@@ -182,16 +182,16 @@ footer{
 }
 
 /**************************** addPost Modal ***************************************/
-#addPost #attach{
+#addPost form #attach{
     margin: 0.5rem 0;
 }
 
-#addPost #attach i{
+#addPost form #attach i{
     margin: auto 0.5rem;
 }
 
 /**************************** addUser Modal ***************************************/
-#addUser label{
+#addUser form label{
     margin: 0.5rem 0;
 }
 

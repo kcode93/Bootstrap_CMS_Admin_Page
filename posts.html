@@ -137,13 +137,13 @@
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <th scope="row" class="align-middle">Life is Good</th>
+                                        <th scope="row" class="align-middle"><a type="button" data-toggle="modal" data-target="#showPost">Life is Good</a></th>
                                         <td class="align-middle"><i class="fas fa-check"></i></td>
                                         <td class="align-middle">Dec 12, 2016</td>
                                         <td>
                                             <a class="btn bg-primary-color" href="edit.html"><i class="fas fa-pencil-alt"></i> Edit</a>
                                             <a href="#" class="btn bg-secondary-color"><i class="fas fa-trash-alt"></i> Delete</a>
-                                            <a class="align-middle" href="#"><i id="eye" class="fas fa-eye"></i></a>
+                                            <a class="align-middle" type="button" data-toggle="modal" data-target="#showPost"><i id="eye" class="fas fa-eye"></i></a>
                                         </td>
                                     </tr>
                                     <tr>
@@ -281,6 +281,34 @@
                     </div><!--end of modal-content-->
                 </div><!--end of modal-dialog-->
             </div><!--end of modal-->
+
+        <!-- Show Post Modal -->
+        <div class="modal fade" id="showPost" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <form>
+                        <div class="modal-header">
+                            <h5 class="modal-title bold" id="exampleModalLabel">Life is Good</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div><!--end of modal-header-->
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <label id="postContent">Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                                Quaerat quasi quisquam voluptas consectetur esse, dolorem nobis voluptate, rem quidem
+                                praesentium sit cumque soluta consequatur totam impedit amet delectus iste nisi.</label>
+                            </div><!--end of form-group-->
+                        </div><!--end of modal-body-->
+                        <div class="modal-footer">
+                            <button type="button" class="btn bg-secondary-color" data-dismiss="modal">Close</button>
+                        </div><!--end of modal-footer-->
+                    </form><!--end of form-->
+                </div><!--end of modal-content-->
+            </div><!--end of modal-dialog-->
+        </div><!--end of modal-->
+
+
 
         <!--JQuery CDN-->
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" 
