@@ -1,15 +1,12 @@
-//Selections
-let userName = document.querySelector('#pageUserName');
-let tagetUserName = document.querySelector('#targetUserName');
-let loginBtn = document.querySelector('#btnLogin'); 
+//Selection
+const userName = document.querySelector('#pageUserName');
+const loginBtn = document.querySelector('#btnLogin');
+const targetUserName = document.querySelector('#loggedUser');
+console.log(userName);
+console.log(loginBtn);
+console.log(targetUserName);
 
 //Events
-document.addEventListener("DOMContentLoaded", onLoad);
+
 
 //Functions
-function onLoad(){
-    CKEDITOR.replace('editor1');
-    console.log(userName);
-    console.log(targetUserName);
-    console.log(loginBtn);
-}
