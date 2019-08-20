@@ -54,8 +54,8 @@ body{
 }
 
 /**************************** Login *********************************/
-#login nav h1{
-    margin-left: 1.3rem !important;
+#brandName{
+    margin-left: 0.3rem !important;
 }
 
 #login{
@@ -68,10 +68,6 @@ body{
 
 
 /**************************** Navbar *********************************/
-#brandName{
-    margin-left: 1rem;
-}
-
 .navbar{
     min-height: 3rem !important;
     margin-bottom: 0 !important;
