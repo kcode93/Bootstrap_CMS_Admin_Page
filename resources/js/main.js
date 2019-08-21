@@ -9,6 +9,7 @@ const numberOfPages = document.querySelector('#cardNumPages');
 const numberOfPosts = document.querySelector('#cardNumPosts');
 const numberOfUsers = document.querySelector('#cardNumUsers');
 const numberOfVisists = document.querySelector('#cardNumVisits');
+const latestUsersTab = document.querySelector('#latestUsersTable');
 
 //Events
 document.addEventListener('DOMContentLoaded', onLoad);
@@ -32,9 +33,9 @@ function setUserName(){
     targetUserName.innerHTML = sessionStorage.getItem('userName');
 }
 
-function createRow(a,b,c,d){
+function createTableRow(tableName,a,b,c,d){
     //targets table and adds a new row with the needed values
-    const table = document.querySelector('#latestUsersTable');
+    const table = tableName;
     let row = table.insertRow(1);
     let cell1 = row.insertCell(0);
     cell1.setAttribute('scope','row');
@@ -91,6 +92,22 @@ function setTotalPagesArray(array){
     //populates local pages array with imported data
     for (let item of array) {
         totalPagesArray.push(item);
+    }
+}
+
+function setLatestUsersTable(tab,array){
+    let groundYear = 2009;
+    let localYear = '';
+    let localName = '';
+    let localUserName = '';
+    let localEmail = '';
+    for (let item of array) {
+        localName =  item.name;
+        localUserName = item.username;
+        localEmail = item.email;
+        localYear = item.joined || groundYear;
+        createTableRow(tab,localName,localUserName,localEmail,localYear);
+        groundYear++;
     }
 }
 
