@@ -25,6 +25,8 @@ function onLoad(){
     }).catch(function(err){
         console.log(err);
     });
+    
+    
 }
 
 function setUserName(){
@@ -33,9 +35,17 @@ function setUserName(){
     targetUserName.innerHTML = sessionStorage.getItem('userName');
 }
 
-function createTableRow(tableName,a,b,c,d){
+function getTargetTable(target){
+    //used to get a dynamic target for createTableRow()
+    if(target === 'latest'){
+        return latestUsersTab;
+    }
+}
+
+function createTableRow(tab,a,b,c,d){
     //targets table and adds a new row with the needed values
-    const table = tableName;
+    const targetTable = getTargetTable(tab);
+    const table = targetTable;
     let row = table.insertRow(1);
     let cell1 = row.insertCell(0);
     cell1.setAttribute('scope','row');
@@ -79,6 +89,7 @@ function setTotalUsersArray(array){
     for (let item of array) {
         totalUsersArray.push(item);
     }
+    setLatestUsersTable(latestUsersTab,totalUsersArray);
 }
 
 function setTotalPostsArray(array){
@@ -96,19 +107,26 @@ function setTotalPagesArray(array){
 }
 
 function setLatestUsersTable(tab,array){
-    let groundYear = 2009;
+    let tabTarget = 'latest'
+    let groundYear = 2010;
     let localYear = '';
     let localName = '';
     let localUserName = '';
     let localEmail = '';
+    let dumText = '';
+    //get users from totalUsersArray and populate latest users table
     for (let item of array) {
         localName =  item.name;
         localUserName = item.username;
         localEmail = item.email;
         localYear = item.joined || groundYear;
-        createTableRow(tab,localName,localUserName,localEmail,localYear);
+        localTargetTable = getTargetTable(tabTarget);
+        //gets the year the users joined, if not available replace value with groundYear
+        //createTableRow(tabTarget,localName,localUserName,localEmail,localYear);
         groundYear++;
+        dumText+=`name: ${localName}, username: ${localUserName}, email: ${localEmail}, joined: ${localYear}`;
     }
+    alert(dumText);
 }
 
 
