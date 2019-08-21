@@ -74,10 +74,24 @@ function getData(method, url){
 }
 
 function setTotalUsersArray(array){
+    //populates local users array with imported data
     for (let item of array) {
         totalUsersArray.push(item);
     }
-    console.log(totalUsersArray);
+}
+
+function setTotalPostsArray(array){
+    //populates local posts array with imported data
+    for (let item of array) {
+        totalPostsArray.push(item);
+    }
+}
+
+function setTotalPagesArray(array){
+    //populates local pages array with imported data
+    for (let item of array) {
+        totalPagesArray.push(item);
+    }
 }
 
 
