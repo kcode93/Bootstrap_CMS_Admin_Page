@@ -46,16 +46,18 @@ function createTableRow(tab,a,b,c,d){
     //targets table and adds a new row with the needed values
     const targetTable = getTargetTable(tab);
     const table = targetTable;
-    let row = table.insertRow(1);
+    let dummyText ='';
+    let row = table.insertRow(-1);
     let cell1 = row.insertCell(0);
     cell1.setAttribute('scope','row');
     let cell2 = row.insertCell(1);
     let cell3 = row.insertCell(2);
-    let cell4 = row.insertCell(4);
+    let cell4 = row.insertCell(3);
     cell1.innerHTML = a;
     cell2.innerHTML = b;
     cell3.innerHTML = c;
     cell4.innerHTML = d;
+    //dummyText+=`name: ${a}, username: ${b}, email: ${c}, joined: ${d} \n`;
 }
 
 function getData(method, url){
@@ -113,7 +115,6 @@ function setLatestUsersTable(tab,array){
     let localName = '';
     let localUserName = '';
     let localEmail = '';
-    let dumText = '';
     //get users from totalUsersArray and populate latest users table
     for (let item of array) {
         localName =  item.name;
@@ -122,11 +123,9 @@ function setLatestUsersTable(tab,array){
         localYear = item.joined || groundYear;
         localTargetTable = getTargetTable(tabTarget);
         //gets the year the users joined, if not available replace value with groundYear
-        //createTableRow(tabTarget,localName,localUserName,localEmail,localYear);
+        createTableRow(tabTarget,localName,localUserName,localEmail,localYear);
         groundYear++;
-        dumText+=`name: ${localName}, username: ${localUserName}, email: ${localEmail}, joined: ${localYear}`;
     }
-    alert(dumText);
 }
 
 
