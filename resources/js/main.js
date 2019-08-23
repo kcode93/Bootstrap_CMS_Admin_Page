@@ -2,6 +2,7 @@
 const totalPagesArray = [];
 const totalPostsArray = [];
 const totalUsersArray = [];
+const VISITSMULTIPLR = 10;
 
 //Selection
 const targetUserName = document.querySelector('#loggedUser');
@@ -10,6 +11,7 @@ const numberOfPosts = document.querySelector('#cardNumPosts');
 const numberOfUsers = document.querySelector('#cardNumUsers');
 const numberOfVisists = document.querySelector('#cardNumVisits');
 const latestUsersTab = document.querySelector('#latestUsersTable');
+const asideUserCounter = document.querySelector('#asideUserCounter');
 
 //Events
 document.addEventListener('DOMContentLoaded', onLoad);
@@ -84,9 +86,17 @@ function getData(method, url){
     });
 }
 
-function setWebOverviewUsersCount(){
+function setTotalUsersCounter(){
     let totalSiteUsers = totalUsersArray.length;
+    //inserts the total number of user on the site
     numberOfUsers.innerHTML = totalSiteUsers;
+    asideUserCounter.innerHTML = totalSiteUsers;
+}
+
+function setTotalVisitsCounter(){
+    let totSiteUsrs = totalUsersArray.length;
+    let totVisUsrs = totSiteUsrs * VISITSMULTIPLR;
+    numberOfVisists.innerHTML = totVisUsrs.toFixed(0);
 }
 
 function setTotalUsersArray(array){
@@ -95,7 +105,8 @@ function setTotalUsersArray(array){
         totalUsersArray.push(item);
     }
     setLatestUsersTable(latestUsersTab,totalUsersArray);
-    setWebOverviewUsersCount();
+    setTotalUsersCounter();
+    setTotalVisitsCounter();
 }
 
 function setTotalPostsArray(array){
