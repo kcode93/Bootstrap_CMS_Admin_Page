@@ -2,7 +2,7 @@
 const totalPagesArray = [];
 const totalPostsArray = [];
 const totalUsersArray = [];
-const VISITSMULTIPLR = 10;
+const VISITSMULTIPLR = 105;
 
 //Selection
 const targetUserName = document.querySelector('#loggedUser');
@@ -88,15 +88,22 @@ function getData(method, url){
 
 function setTotalUsersCounter(){
     let totalSiteUsers = totalUsersArray.length;
-    //inserts the total number of user on the site
+    //displays the total number of users in the site.
     numberOfUsers.innerHTML = totalSiteUsers;
     asideUserCounter.innerHTML = totalSiteUsers;
+}
+
+function numberWithCommas(x) {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
 
 function setTotalVisitsCounter(){
     let totSiteUsrs = totalUsersArray.length;
     let totVisUsrs = totSiteUsrs * VISITSMULTIPLR;
-    numberOfVisists.innerHTML = totVisUsrs.toFixed(0);
+    let formattedTotVisUsrs = '';
+    //inserts a hypothetical number of user on the site, bases on total number of users.
+    formattedTotVisUsrs = numberWithCommas(totVisUsrs);
+    numberOfVisists.innerHTML = formattedTotVisUsrs;
 }
 
 function setTotalUsersArray(array){
