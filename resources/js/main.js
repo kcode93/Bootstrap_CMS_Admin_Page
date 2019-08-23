@@ -25,8 +25,6 @@ function onLoad(){
     }).catch(function(err){
         console.log(err);
     });
-    
-    
 }
 
 function setUserName(){
@@ -86,6 +84,10 @@ function getData(method, url){
     });
 }
 
+function setWebOverviewUsersCount(){
+    let numberOfUsers = totalUsersArray.length;
+}
+
 function setTotalUsersArray(array){
     //populates local users array with imported data
     for (let item of array) {
@@ -110,7 +112,7 @@ function setTotalPagesArray(array){
 
 function setLatestUsersTable(tab,array){
     let tabTarget = 'latest'
-    let groundYear = 2010;
+    let groundYear = 2019;
     let localYear = '';
     let localName = '';
     let localUserName = '';
@@ -124,7 +126,7 @@ function setLatestUsersTable(tab,array){
         localTargetTable = getTargetTable(tabTarget);
         //gets the year the users joined, if not available replace value with groundYear
         createTableRow(tabTarget,localName,localUserName,localEmail,localYear);
-        groundYear++;
+        groundYear--;
     }
 }
 
