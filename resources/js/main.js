@@ -85,7 +85,8 @@ function getData(method, url){
 }
 
 function setWebOverviewUsersCount(){
-    let numberOfUsers = totalUsersArray.length;
+    let totalSiteUsers = totalUsersArray.length;
+    numberOfUsers.innerHTML = totalSiteUsers;
 }
 
 function setTotalUsersArray(array){
@@ -94,6 +95,7 @@ function setTotalUsersArray(array){
         totalUsersArray.push(item);
     }
     setLatestUsersTable(latestUsersTab,totalUsersArray);
+    setWebOverviewUsersCount();
 }
 
 function setTotalPostsArray(array){
