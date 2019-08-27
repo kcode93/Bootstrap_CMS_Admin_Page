@@ -12,6 +12,8 @@ const numberOfUsers = document.querySelector('#cardNumUsers');
 const numberOfVisists = document.querySelector('#cardNumVisits');
 const latestUsersTab = document.querySelector('#latestUsersTable');
 const asideUserCounter = document.querySelector('#asideUserCounter');
+const asidePostsCounter = document.querySelector('#asidePostsCounter');
+const asidePagesCounter = document.querySelector('#asidePagesCounter');
 
 //Events
 document.addEventListener('DOMContentLoaded', onLoad);
@@ -88,6 +90,13 @@ function getData(method, url){
 function setTotalUsersCounter(){
     let totalSiteUsers = totalUsersArray.length;
     //displays the total number of users in the site.
+    numberOfUsers.innerHTML = totalSiteUsers;
+    asideUserCounter.innerHTML = totalSiteUsers;
+}
+
+function setTotalPostsCounter(){
+    let totalSitePosts = totalPostsArray.length;
+    //displays the total number of posts in the site.
     numberOfUsers.innerHTML = totalSiteUsers;
     asideUserCounter.innerHTML = totalSiteUsers;
 }
