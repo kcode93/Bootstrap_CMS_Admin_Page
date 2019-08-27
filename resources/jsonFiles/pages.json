@@ -8,7 +8,8 @@
             "<meta http-equiv='X-UA-Compatible' content='ie=edge'>",
             "<meta name='author' content='Kenneth Garcia'>"
         ],
-        "metaDescription": "Bootstrap, CMS Admin Site"
+        "metaDescription": "Bootstrap, CMS Admin Site",
+        "published": true
 
     },
     {
@@ -20,7 +21,8 @@
             "<meta http-equiv='X-UA-Compatible' content='ie=edge'>",
             "<meta name='author' content='Kenneth Garcia'>"
         ],
-        "metaDescription": "Bootstrap, CMS Admin Site"
+        "metaDescription": "Bootstrap, CMS Admin Site",
+        "published": true
 
     },
     {
@@ -32,7 +34,8 @@
             "<meta http-equiv='X-UA-Compatible' content='ie=edge'>",
             "<meta name='author' content='Kenneth Garcia'>"
         ],
-        "metaDescription": "Bootstrap, CMS Admin Site"
+        "metaDescription": "Bootstrap, CMS Admin Site",
+        "published": true
 
     },
     {
@@ -44,7 +47,8 @@
             "<meta http-equiv='X-UA-Compatible' content='ie=edge'>",
             "<meta name='author' content='Kenneth Garcia'>"
         ],
-        "metaDescription": "Bootstrap, CMS Admin Site"
+        "metaDescription": "Bootstrap, CMS Admin Site",
+        "published": true
 
     },
     {
@@ -56,7 +60,8 @@
             "<meta http-equiv='X-UA-Compatible' content='ie=edge'>",
             "<meta name='author' content='Kenneth Garcia'>"
         ],
-        "metaDescription": "Bootstrap, CMS Admin Site"
+        "metaDescription": "Bootstrap, CMS Admin Site",
+        "published": true
 
     }
 ]

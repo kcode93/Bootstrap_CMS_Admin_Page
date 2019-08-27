@@ -31,9 +31,16 @@ function onLoad(){
         console.log(err);
     });
     //Ajax Request for total Posts in Site
-    getData('GET', 'http://jsonplaceholder.typicode.com/posts').then(function(data){
+    getData('GET', 'https://jsonplaceholder.typicode.com/posts').then(function(data){
         let dataArray = JSON.parse(data);
         setTotalPostsArray(dataArray);
+    }).catch(function(err){
+        console.log(err);
+    });
+    //Ajax Request for total Pages in Site
+    getData('GET', './resources/jsonFiles/pages.json').then(function(data){
+        let dataArray = JSON.parse(data);
+        setTotalPagesArray(dataArray);
     }).catch(function(err){
         console.log(err);
     });
@@ -156,16 +163,20 @@ function setTotalPostsArray(array){
         //populates local posts array with imported data
         totalPostsArray.push(item);
     }
-    //stores array of user objects into local sotrage
+    //stores array of posts objects into local sotrage
     localStorage.setItem('storedPostsArray', JSON.stringify(totalPostsArray));
 
 }
 
 function setTotalPagesArray(array){
-    //populates local pages array with imported data
     for (let item of array) {
+        //parses objects to be stored in localstorage
+        localStorage.setItem("pageObject", JSON.stringify(item));
+        //populates local pages array with imported data
         totalPagesArray.push(item);
     }
+    //stores array of posts objects into local sotrage
+    localStorage.setItem('storedPagesArray', JSON.stringify(totalPagesArray));
 }
 
 function setLatestUsersTable(tab,array){
