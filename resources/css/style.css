@@ -190,6 +190,10 @@ footer{
     margin: auto 0.5rem;
 }
 
+#addPost form label{
+    margin-bottom: 0.5rem;
+}
+
 /**************************** addUser Modal ***************************************/
 #addUser form label{
     margin: 0.5rem 0;
