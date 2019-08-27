@@ -125,9 +125,14 @@ function setTotalVisitsCounter(){
 
 function setTotalUsersArray(array){
     //populates local users array with imported data
+    //let counter = 0;
+    //let user = 'user';
+    //let userIndex = user+counter;
     for (let item of array) {
+        localStorage.setItem("userObject", JSON.stringify(item));
         totalUsersArray.push(item);
     }
+    localStorage.setItem('storedUseresArray', JSON.stringify(totalUsersArray));
     setLatestUsersTable(latestUsersTab,totalUsersArray);
     setTotalUsersCounter();
     setTotalVisitsCounter();
