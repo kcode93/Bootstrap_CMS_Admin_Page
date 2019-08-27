@@ -23,12 +23,21 @@ function onLoad(){
     //implements CKEditor
     CKEDITOR.replace( 'editor1' );
     setUserName();
+    //Ajax Request for registered Users
     getData('GET', 'http://jsonplaceholder.typicode.com/users').then(function(data){
         let dataArray = JSON.parse(data);
         setTotalUsersArray(dataArray);
     }).catch(function(err){
         console.log(err);
     });
+    //Ajax Request for total Posts in Site
+    getData('GET', 'https://jsonplaceholder.typicode.com/posts').then(function(data){
+        let dataArray = JSON.parse(data);
+        setTotalPostsArray(dataArray);
+    }).catch(function(err){
+        console.log(err);
+    });
+    
 }
 
 function setUserName(){
@@ -124,15 +133,15 @@ function setTotalVisitsCounter(){
 }
 
 function setTotalUsersArray(array){
-    //populates local users array with imported data
-    //let counter = 0;
-    //let user = 'user';
-    //let userIndex = user+counter;
     for (let item of array) {
+        //parses objects to be stored in localstorage
         localStorage.setItem("userObject", JSON.stringify(item));
+        //populates local users array with imported data
         totalUsersArray.push(item);
     }
+    //stores array of user objects into local sotrage
     localStorage.setItem('storedUseresArray', JSON.stringify(totalUsersArray));
+    //populates latest Users table and counters por posts and pages respectively
     setLatestUsersTable(latestUsersTab,totalUsersArray);
     setTotalUsersCounter();
     setTotalVisitsCounter();
@@ -141,10 +150,15 @@ function setTotalUsersArray(array){
 }
 
 function setTotalPostsArray(array){
-    //populates local posts array with imported data
     for (let item of array) {
+        //parses objects to be stored in localstorage
+        localStorage.setItem("postObject", JSON.stringify(item));
+        //populates local posts array with imported data
         totalPostsArray.push(item);
     }
+    //stores array of user objects into local sotrage
+    localStorage.setItem('storedPostsArray', JSON.stringify(totalPostsArray));
+
 }
 
 function setTotalPagesArray(array){
