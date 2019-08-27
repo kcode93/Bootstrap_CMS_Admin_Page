@@ -92,13 +92,22 @@ function setTotalUsersCounter(){
     //displays the total number of users in the site.
     numberOfUsers.innerHTML = totalSiteUsers;
     asideUserCounter.innerHTML = totalSiteUsers;
+
 }
 
 function setTotalPostsCounter(){
     let totalSitePosts = totalPostsArray.length;
     //displays the total number of posts in the site.
-    numberOfUsers.innerHTML = totalSiteUsers;
-    asideUserCounter.innerHTML = totalSiteUsers;
+    numberOfPosts.innerHTML = totalSitePosts;
+    asidePostsCounter.innerHTML = totalSitePosts;
+    
+}
+
+function setTotalPagesCounter(){
+    let totalSitePages = totalPagesArray.length;
+    //displays the total number of pages in the site.
+    numberOfPages.innerHTML = totalSitePages;
+    asidePagesCounter.innerHTML = totalSitePages;
 }
 
 function numberWithCommas(x) {
@@ -122,6 +131,8 @@ function setTotalUsersArray(array){
     setLatestUsersTable(latestUsersTab,totalUsersArray);
     setTotalUsersCounter();
     setTotalVisitsCounter();
+    setTotalPostsCounter();
+    setTotalPagesCounter();
 }
 
 function setTotalPostsArray(array){
