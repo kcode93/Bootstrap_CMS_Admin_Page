@@ -1,0 +1,62 @@
+[
+    {
+        "title": "index.html",
+        "body": "<html><head><titl></title></head><body></body></html>",
+        "metaTags": [
+            "<meta charset='UTF-8'>",
+            "<meta name='viewport' content='width=device-width, initial-scale=1.0'>",
+            "<meta http-equiv='X-UA-Compatible' content='ie=edge'>",
+            "<meta name='author' content='Kenneth Garcia'>"
+        ],
+        "metaDescription": "Bootstrap, CMS Admin Site"
+
+    },
+    {
+        "title": "dashboard.html",
+        "body": "<html><head><titl></title></head><body></body></html>",
+        "metaTags": [
+            "<meta charset='UTF-8'>",
+            "<meta name='viewport' content='width=device-width, initial-scale=1.0'>",
+            "<meta http-equiv='X-UA-Compatible' content='ie=edge'>",
+            "<meta name='author' content='Kenneth Garcia'>"
+        ],
+        "metaDescription": "Bootstrap, CMS Admin Site"
+
+    },
+    {
+        "title": "users.html",
+        "body": "<html><head><titl></title></head><body></body></html>",
+        "metaTags": [
+            "<meta charset='UTF-8'>",
+            "<meta name='viewport' content='width=device-width, initial-scale=1.0'>",
+            "<meta http-equiv='X-UA-Compatible' content='ie=edge'>",
+            "<meta name='author' content='Kenneth Garcia'>"
+        ],
+        "metaDescription": "Bootstrap, CMS Admin Site"
+
+    },
+    {
+        "title": "pages.html",
+        "body": "<html><head><titl></title></head><body></body></html>",
+        "metaTags": [
+            "<meta charset='UTF-8'>",
+            "<meta name='viewport' content='width=device-width, initial-scale=1.0'>",
+            "<meta http-equiv='X-UA-Compatible' content='ie=edge'>",
+            "<meta name='author' content='Kenneth Garcia'>"
+        ],
+        "metaDescription": "Bootstrap, CMS Admin Site"
+
+    },
+    {
+        "title": "posts.html",
+        "body": "<html><head><titl></title></head><body></body></html>",
+        "metaTags": [
+            "<meta charset='UTF-8'>",
+            "<meta name='viewport' content='width=device-width, initial-scale=1.0'>",
+            "<meta http-equiv='X-UA-Compatible' content='ie=edge'>",
+            "<meta name='author' content='Kenneth Garcia'>"
+        ],
+        "metaDescription": "Bootstrap, CMS Admin Site"
+
+    }
+]

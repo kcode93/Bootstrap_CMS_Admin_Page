@@ -31,7 +31,7 @@ function onLoad(){
         console.log(err);
     });
     //Ajax Request for total Posts in Site
-    getData('GET', 'https://jsonplaceholder.typicode.com/posts').then(function(data){
+    getData('GET', 'http://jsonplaceholder.typicode.com/posts').then(function(data){
         let dataArray = JSON.parse(data);
         setTotalPostsArray(dataArray);
     }).catch(function(err){
