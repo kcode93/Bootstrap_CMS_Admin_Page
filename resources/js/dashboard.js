@@ -199,5 +199,25 @@ function setLatestUsersTable(tab,array){
     }
 }
 
+function targetArray(type){
+    switch (type) {
+        case user:
+            return totalUsersArray;
+            break;
+        case post:
+            return totalPostsArray;
+            break;
+        case page:
+            return totalPagesArray;
+            break;
+        default:
+            break;
+    }
+}
+
+function addNewEntry(type){
+    
+}
+
 
 
