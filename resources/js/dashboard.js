@@ -14,6 +14,9 @@ const latestUsersTab = document.querySelector('#latestUsersTable');
 const asideUserCounter = document.querySelector('#asideUserCounter');
 const asidePostsCounter = document.querySelector('#asidePostsCounter');
 const asidePagesCounter = document.querySelector('#asidePagesCounter');
+const addNewUser = document.querySelector('#addNewUser');
+const addNewPost = document.querySelector('#addNewPost');
+const addNewPage = document.querySelector('#addNewPage');
 
 //Events
 document.addEventListener('DOMContentLoaded', onLoad);
