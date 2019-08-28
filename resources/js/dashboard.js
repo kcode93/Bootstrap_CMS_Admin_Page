@@ -3,6 +3,7 @@ const totalPagesArray = [];
 const totalPostsArray = [];
 const totalUsersArray = [];
 const VISITSMULTIPLR = 105;
+let ajaxFlag = false;
 
 //Selections
 const targetUserName = document.querySelector('#loggedUser');
@@ -37,29 +38,8 @@ logOut.addEventListener('click', clearAllStorage);
 function onLoad(){
     //implements CKEditor
     CKEDITOR.replace( 'editor1' );
+    ajaxCalls();
     setUserName();
-    //Ajax Request for registered Users
-    getData('GET', 'http://jsonplaceholder.typicode.com/users').then(function(data){
-        let dataArray = JSON.parse(data);
-        setTotalUsersArray(dataArray);
-    }).catch(function(err){
-        console.log(err);
-    });
-    //Ajax Request for total Posts in Site
-    getData('GET', 'https://jsonplaceholder.typicode.com/posts').then(function(data){
-        let dataArray = JSON.parse(data);
-        setTotalPostsArray(dataArray);
-    }).catch(function(err){
-        console.log(err);
-    });
-    //Ajax Request for total Pages in Site
-    getData('GET', './resources/jsonFiles/pages.json').then(function(data){
-        let dataArray = JSON.parse(data);
-        setTotalPagesArray(dataArray);
-    }).catch(function(err){
-        console.log(err);
-    });
-    
 }
 
 function setUserName(){
@@ -213,52 +193,25 @@ function setLatestUsersTable(tab,array){
     }
 }
 
-/*function targetArray(type){
-    //returns an array of objects that is stored in local storage depending on the passed parameter
-    let existingEntriesArray;
-    if(type == users){
-        existingEntriesArray = JSON.parse(localStorage.getItem("storedUsersArray"));
-        //if the retrieved array is empty, return an empty array
-        if(existingEntriesArray == null){
-            existingEntriesArray = [];
-        }
-    }else if(type == posts){
-        existingEntriesArray = JSON.parse(localStorage.getItem("storedPostsArray"));
-        if(existingEntriesArray == null){
-            existingEntriesArray = [];
-        }
-    }else if(type == pages){
-        existingEntriesArray = JSON.parse(localStorage.getItem("storedPagesArray"));
-        if(existingEntriesArray == null){
-            existingEntriesArray = [];
-        }
-    }
-    //returns array
-    return existingEntriesArray;
-}*/
-
 function addNewUser(){
+    ajaxFlag = true;
     //assigns the array to work with
-    let localStorageUsersArray = JSON.parse(localStorage.getItem("storedUsersArray"));
-    if(localStorageUsersArray == null){
-        localStorageUsersArray = [];
-    }
-    let counter = localStorageUsersArray.length++;
+    let dummyText ='';
+    let localStorageUsersArray = JSON.parse(localStorage.getItem("storedUsersArray") || []);
+    //creates new user object out of values inserted by new user modal
+    let newUJoined = 2019;
     let newUName = newUserName.value;
     let newUuser = newUserUsername.value;
     let newUEmail = newUserEmail.value;
-    //creates new user object with data from modal
     let newUserEntry = {
-        "id": counter,
         "name": newUName,
         "username": newUuser,
-        "email": newUEmail
+        "email": newUEmail,
+        "joined": newUJoined
     }
     //adds new user to local array 
     totalUsersArray.push(newUserEntry);
-    console.log(totalUsersArray);
     //stores new object in local storage array
-    localStorage.setItem("newUserStored", JSON.stringify(newUserEntry));
     localStorageUsersArray.push(newUserEntry);
     localStorage.setItem("storedUsersArray", JSON.stringify(localStorageUsersArray));
     setTotalUsersCounter();
@@ -266,6 +219,37 @@ function addNewUser(){
 
 function clearAllStorage(){
     localStorage.clear();
+    ajaxFlag = false;
+}
+
+function ajaxCalls(){
+    //Ajax Request for registered Users
+    getData('GET', 'http://jsonplaceholder.typicode.com/users').then(function(data){
+        if(ajaxFlag == false){
+            let dataArray = JSON.parse(data);
+            setTotalUsersArray(dataArray);
+        }
+    }).catch(function(err){
+        console.log(err);
+    });
+    //Ajax Request for total Posts in Site
+    getData('GET', 'https://jsonplaceholder.typicode.com/posts').then(function(data){
+        if(ajaxFlag == false){
+            let dataArray = JSON.parse(data);
+            setTotalPostsArray(dataArray);
+        }
+    }).catch(function(err){
+        console.log(err);
+    });
+    //Ajax Request for total Pages in Site
+    getData('GET', './resources/jsonFiles/pages.json').then(function(data){
+        if(ajaxFlag == false){
+            let dataArray = JSON.parse(data);
+            setTotalPagesArray(dataArray);
+        }
+    }).catch(function(err){
+        console.log(err);
+    });
 }
 
 
