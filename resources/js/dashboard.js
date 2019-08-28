@@ -26,9 +26,12 @@ const newPageTitle = document.querySelector('#newPageTitle');
 const newPageBody = document.querySelector('#newPageBody');
 const newPageMetaTags = document.querySelector('#newPageMetaTags');
 const newPageMetaDescription = document.querySelector('#newPageMetaDescription');
+const logOut = document.querySelector('#logOut');
 
 //Events
 document.addEventListener('DOMContentLoaded', onLoad);
+btnAddNewUser.addEventListener('click', addNewUser);
+logOut.addEventListener('click', clearAllStorage);
 
 //Functions
 function onLoad(){
@@ -120,7 +123,6 @@ function setTotalUsersCounter(){
     //displays the total number of users in the site.
     numberOfUsers.innerHTML = totalSiteUsers;
     asideUserCounter.innerHTML = totalSiteUsers;
-
 }
 
 function setTotalPostsCounter(){
@@ -154,12 +156,12 @@ function setTotalVisitsCounter(){
 function setTotalUsersArray(array){
     for (let item of array) {
         //parses objects to be stored in localstorage
-        localStorage.setItem("userObject", JSON.stringify(item));
+        //localStorage.setItem("userObject", JSON.stringify(item));
         //populates local users array with imported data
         totalUsersArray.push(item);
     }
     //stores array of user objects into local sotrage
-    localStorage.setItem('storedUseresArray', JSON.stringify(totalUsersArray));
+    localStorage.setItem('storedUsersArray', JSON.stringify(totalUsersArray));
     //populates latest Users table and counters por posts and pages respectively
     setLatestUsersTable(latestUsersTab,totalUsersArray);
     setTotalUsersCounter();
@@ -171,7 +173,7 @@ function setTotalUsersArray(array){
 function setTotalPostsArray(array){
     for (let item of array) {
         //parses objects to be stored in localstorage
-        localStorage.setItem("postObject", JSON.stringify(item));
+        //localStorage.setItem("postObject", JSON.stringify(item));
         //populates local posts array with imported data
         totalPostsArray.push(item);
     }
@@ -183,7 +185,7 @@ function setTotalPostsArray(array){
 function setTotalPagesArray(array){
     for (let item of array) {
         //parses objects to be stored in localstorage
-        localStorage.setItem("pageObject", JSON.stringify(item));
+        //localStorage.setItem("pageObject", JSON.stringify(item));
         //populates local pages array with imported data
         totalPagesArray.push(item);
     }
@@ -212,22 +214,6 @@ function setLatestUsersTable(tab,array){
 }
 
 /*function targetArray(type){
-    switch (type) {
-        case user:
-            return totalUsersArray;
-            break;
-        case post:
-            return totalPostsArray;
-            break;
-        case page:
-            return totalPagesArray;
-            break;
-        default:
-            break;
-    }
-}*/
-
-function targetArray(type){
     //returns an array of objects that is stored in local storage depending on the passed parameter
     let existingEntriesArray;
     if(type == users){
@@ -249,13 +235,16 @@ function targetArray(type){
     }
     //returns array
     return existingEntriesArray;
-}
+}*/
 
 function addNewUser(){
     //assigns the array to work with
-    let localStorageUsersArray = targetArray(users);
-    let counter = totalUsersArray.length++;
-    let newUName = newUName.value;
+    let localStorageUsersArray = JSON.parse(localStorage.getItem("storedUsersArray"));
+    if(localStorageUsersArray == null){
+        localStorageUsersArray = [];
+    }
+    let counter = localStorageUsersArray.length++;
+    let newUName = newUserName.value;
     let newUuser = newUserUsername.value;
     let newUEmail = newUserEmail.value;
     //creates new user object with data from modal
@@ -267,10 +256,16 @@ function addNewUser(){
     }
     //adds new user to local array 
     totalUsersArray.push(newUserEntry);
+    console.log(totalUsersArray);
     //stores new object in local storage array
     localStorage.setItem("newUserStored", JSON.stringify(newUserEntry));
     localStorageUsersArray.push(newUserEntry);
     localStorage.setItem("storedUsersArray", JSON.stringify(localStorageUsersArray));
+    setTotalUsersCounter();
+}
+
+function clearAllStorage(){
+    localStorage.clear();
 }
 
 
