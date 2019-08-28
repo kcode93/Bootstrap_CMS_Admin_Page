@@ -4,7 +4,7 @@ const totalPostsArray = [];
 const totalUsersArray = [];
 const VISITSMULTIPLR = 105;
 
-//Selection
+//Selections
 const targetUserName = document.querySelector('#loggedUser');
 const numberOfPages = document.querySelector('#cardNumPages');
 const numberOfPosts = document.querySelector('#cardNumPosts');
@@ -14,9 +14,18 @@ const latestUsersTab = document.querySelector('#latestUsersTable');
 const asideUserCounter = document.querySelector('#asideUserCounter');
 const asidePostsCounter = document.querySelector('#asidePostsCounter');
 const asidePagesCounter = document.querySelector('#asidePagesCounter');
-const addNewUser = document.querySelector('#addNewUser');
-const addNewPost = document.querySelector('#addNewPost');
-const addNewPage = document.querySelector('#addNewPage');
+const btnAddNewUser = document.querySelector('#addNewUser');
+const btnAddNewPost = document.querySelector('#addNewPost');
+const btnAddNewPage = document.querySelector('#addNewPage');
+const newUserName = document.querySelector('#newUserName');
+const newUserUsername = document.querySelector('#newUserUsername');
+const newUserEmail = document.querySelector('#newUserEmail');
+const newPostTitle = document.querySelector('#newPostTitle');
+const newPostBody = document.querySelector('#newPostBody');
+const newPageTitle = document.querySelector('#newPageTitle');
+const newPageBody = document.querySelector('#newPageBody');
+const newPageMetaTags = document.querySelector('#newPageMetaTags');
+const newPageMetaDescription = document.querySelector('#newPageMetaDescription');
 
 //Events
 document.addEventListener('DOMContentLoaded', onLoad);
@@ -202,7 +211,7 @@ function setLatestUsersTable(tab,array){
     }
 }
 
-function targetArray(type){
+/*function targetArray(type){
     switch (type) {
         case user:
             return totalUsersArray;
@@ -216,10 +225,52 @@ function targetArray(type){
         default:
             break;
     }
+}*/
+
+function targetArray(type){
+    //returns an array of objects that is stored in local storage depending on the passed parameter
+    let existingEntriesArray;
+    if(type == users){
+        existingEntriesArray = JSON.parse(localStorage.getItem("storedUsersArray"));
+        //if the retrieved array is empty, return an empty array
+        if(existingEntriesArray == null){
+            existingEntriesArray = [];
+        }
+    }else if(type == posts){
+        existingEntriesArray = JSON.parse(localStorage.getItem("storedPostsArray"));
+        if(existingEntriesArray == null){
+            existingEntriesArray = [];
+        }
+    }else if(type == pages){
+        existingEntriesArray = JSON.parse(localStorage.getItem("storedPagesArray"));
+        if(existingEntriesArray == null){
+            existingEntriesArray = [];
+        }
+    }
+    //returns array
+    return existingEntriesArray;
 }
 
-function addNewEntry(type){
-    
+function addNewUser(){
+    //assigns the array to work with
+    let localStorageUsersArray = targetArray(users);
+    let counter = totalUsersArray.length++;
+    let newUName = newUName.value;
+    let newUuser = newUserUsername.value;
+    let newUEmail = newUserEmail.value;
+    //creates new user object with data from modal
+    let newUserEntry = {
+        "id": counter,
+        "name": newUName,
+        "username": newUuser,
+        "email": newUEmail
+    }
+    //adds new user to local array 
+    totalUsersArray.push(newUserEntry);
+    //stores new object in local storage array
+    localStorage.setItem("newUserStored", JSON.stringify(newUserEntry));
+    localStorageUsersArray.push(newUserEntry);
+    localStorage.setItem("storedUsersArray", JSON.stringify(localStorageUsersArray));
 }
 
 
