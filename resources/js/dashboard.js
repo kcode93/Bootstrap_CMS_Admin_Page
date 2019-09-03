@@ -174,8 +174,9 @@ function setTotalVisitsCounter(){
 function setInitialValues(){
     //pull local sotorage array of users
     let totalUsersArray = JSON.parse(localStorage.getItem("storedUsersArray") || []);
+    let initalTabTarget = 'latest';
     //populates latest Users table and counters por posts and pages respectively
-    setLatestUsersTable(latestUsersTab,totalUsersArray);
+    setLatestUsersTable(initalTabTarget,totalUsersArray);
     setTotalUsersCounter();
     setTotalVisitsCounter();
     setTotalPostsCounter();
@@ -184,7 +185,7 @@ function setInitialValues(){
 
 function setLatestUsersTable(tab,array){
     let locRandomDates = JSON.parse(localStorage.getItem("storedRandomDates") || []);
-    let tabTarget = 'latest'
+    let tabTarget = tab;
     let groundDate = '';
     let localYear = '';
     let localName = '';
@@ -196,7 +197,7 @@ function setLatestUsersTable(tab,array){
         localUserName = array[i].username;
         localEmail = array[i].email;
         localYear = array[i].joined || locRandomDates[i];
-        localTargetTable = getTargetTable(tabTarget);
+        //localTargetTable = getTargetTable(tabTarget);
         //gets the year the users joined, if not available replace value with groundYear
         createTableRow(tabTarget,localName,localUserName,localEmail,localYear);
     }
