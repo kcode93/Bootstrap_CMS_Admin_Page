@@ -11,12 +11,23 @@ function getUserName(){
 
 function setContainerArrays(array){
     let containerArray = [];
+    let counter = '';
+    let lsArrayName = '';
     for (let item of array) {
         //populates local users array with imported data
         containerArray.push(item);
     }
     //stores array of user objects into local sotrage
-    localStorage.setItem('storedUsersArray', JSON.stringify(containerArray));
+    if(counter == 0){
+        lsArrayName = 'storedUsersArray';
+        localStorage.setItem(lsArrayName, JSON.stringify(containerArray));
+    }else if(counter == 1){
+        lsArrayName = 'storedPostsArray';
+        localStorage.setItem(lsArrayName, JSON.stringify(containerArray));
+    }else if (counter == 2){
+        lsArrayName = 'storedPagesArray';
+        localStorage.setItem(lsArrayName, JSON.stringify(containerArray));
+    }
 }
 
 function ajaxCalls(){
