@@ -132,12 +132,12 @@ function getCurrentDate(){
     return currentDate;
 }
 
-function setRandomDate(){
+function setRandomDate(year){
     //creates array of months in a year
     let months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
     let randomNumber = Math.floor((Math.random() * 11) + 0);
     let currentMonth = '';
-    let currentYear = PRESENTYEAR;
+    let currentYear = year;
     let randomDate = '';
     //asign meaningful month based on the returned value of getMonth()
     switch (randomNumber) {
@@ -240,21 +240,24 @@ function setInitialValues(){
 }
 
 function setLatestUsersTable(tab,array){
+    let curYer = PRESENTYEAR;
     let tabTarget = 'latest'
-    let groundYear = setRandomDate();
+    let groundDate = '';
     let localYear = '';
     let localName = '';
     let localUserName = '';
     let localEmail = '';
     //get users from totalUsersArray and populate latest users table
     for (let i = 0; i < 10; i++) {
+        groundDate = setRandomDate(curYer);
         localName =  array[i].name;
         localUserName = array[i].username;
         localEmail = array[i].email;
-        localYear = array[i].joined || groundYear;
+        localYear = array[i].joined || groundDate;
         localTargetTable = getTargetTable(tabTarget);
         //gets the year the users joined, if not available replace value with groundYear
         createTableRow(tabTarget,localName,localUserName,localEmail,localYear);
+        curYer--;
     }
 }
 
