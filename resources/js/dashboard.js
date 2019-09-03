@@ -135,63 +135,6 @@ function getCurrentDate(){
     return currentDate;
 }
 
-function setRandomDate(year){
-    //creates array of months in a year
-    let months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-    let randomNumber = Math.floor((Math.random() * 11) + 0);
-    let currentMonth = '';
-    let currentYear = year;
-    let randomDate = '';
-    //asign meaningful month based on the returned value of getMonth()
-    switch (randomNumber) {
-        case 0:
-            currentMonth = months[0];
-            break;
-        case 1:
-            currentMonth = months[1];
-            break;
-        case 2:
-            currentMonth = months[2];
-            break;
-        case 3:
-            currentMonth = months[3];
-            break;
-        case 4:
-            currentMonth = months[4];
-            break;
-        case 5:
-            currentMonth = months[5];
-            break;
-        case 6:
-            currentMonth = months[6];
-            break;
-        case 7:
-            currentMonth = months[7];
-            break;
-        case 8:
-            currentMonth = months[8];
-            break;
-        case 9:
-            currentMonth = months[9];
-            break;
-        case 10:
-            currentMonth = months[10];
-            break;
-        case 11:
-            currentMonth = months[11];
-            break;
-        case 12:
-            currentMonth = months[12];
-            break;
-        default:
-            break;
-    }
-    randomDate = `${currentMonth} ${currentYear}`;
-    return randomDate;
-    currentYear--;
-
-}
-
 function setTotalUsersCounter(){
     let localTotalUsersArray = JSON.parse(localStorage.getItem("storedUsersArray") || []);
     let totalSiteUsers = localTotalUsersArray.length;
@@ -243,7 +186,7 @@ function setInitialValues(){
 }
 
 function setLatestUsersTable(tab,array){
-    let curYer = PRESENTYEAR;
+    let locRandomDates = JSON.parse(localStorage.getItem("storedRandomDates") || []);
     let tabTarget = 'latest'
     let groundDate = '';
     let localYear = '';
@@ -252,15 +195,13 @@ function setLatestUsersTable(tab,array){
     let localEmail = '';
     //get users from totalUsersArray and populate latest users table
     for (let i = 0; i < 10; i++) {
-        groundDate = setRandomDate(curYer);
         localName =  array[i].name;
         localUserName = array[i].username;
         localEmail = array[i].email;
-        localYear = array[i].joined || groundDate;
+        localYear = array[i].joined || locRandomDates[i];
         localTargetTable = getTargetTable(tabTarget);
         //gets the year the users joined, if not available replace value with groundYear
         createTableRow(tabTarget,localName,localUserName,localEmail,localYear);
-        curYer--;
     }
 }
 
@@ -295,7 +236,7 @@ function addNewPost(){
     }
     //stores new object in local storage array
     localStoragePostsArray.push(newPostEntry);
-    localStorage.setItem("storedUsersArray", JSON.stringify(localStoragePostsArray));
+    localStorage.setItem("storedPostsArray", JSON.stringify(localStoragePostsArray));
 }
 
 function addNewPage(){
@@ -322,7 +263,7 @@ function addNewPage(){
     }
     //stores new object in local storage array
     localStoragePagesArray.push(newPageEntry);
-    localStorage.setItem("storedUsersArray", JSON.stringify(localStoragePagesArray));
+    localStorage.setItem("storedPagesArray", JSON.stringify(localStoragePagesArray));
 }
 
 function clearAllStorage(){
