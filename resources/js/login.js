@@ -31,6 +31,32 @@ function setContainerArrays(array, i){
     }
 }
 
+function getData(method, url){
+    return new Promise(function(resolve, reject){
+        var request = new XMLHttpRequest();
+        request.open(method, url);
+        //if request is sucssesful 
+        request.onload = function(){
+            if(this.status >= 200 && this.status < 300){
+                resolve(request.response);
+            }else{
+                reject({
+                    status: this.status,
+                    statusText: this.statusText
+                });
+            }
+        };
+        //if request fails
+        request.onerror = function(){
+            reject({
+                status: this.status,
+                statusText: this.statusText
+            });
+        };
+        request.send();
+    });
+}
+
 function ajaxCalls(){
     //Ajax Request for registered Users
     let source = '';
@@ -50,23 +76,4 @@ function ajaxCalls(){
             console.log(err);
         });
     }
-    
-    //Ajax Request for total Posts in Site
-    getData('GET', 'https://jsonplaceholder.typicode.com/posts').then(function(data){
-        if(ajaxFlag == false){
-            let dataArray = JSON.parse(data);
-            setContainerArrays(dataArray);
-        }
-    }).catch(function(err){
-        console.log(err);
-    });
-    //Ajax Request for total Pages in Site
-    getData('GET', './resources/jsonFiles/pages.json').then(function(data){
-        if(ajaxFlag == false){
-            let dataArray = JSON.parse(data);
-            setContainerArrays(dataArray);
-        }
-    }).catch(function(err){
-        console.log(err);
-    });
 }

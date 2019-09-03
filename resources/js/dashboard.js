@@ -1,7 +1,7 @@
 //Variables
-const totalPagesArray = [];
-const totalPostsArray = [];
-const totalUsersArray = [];
+//const totalPagesArray = [];
+//const totalPostsArray = [];
+//const totalUsersArray = [];
 const VISITSMULTIPLR = 105;
 let ajaxFlag = false;
 
@@ -38,7 +38,7 @@ logOut.addEventListener('click', clearAllStorage);
 function onLoad(){
     //implements CKEditor
     CKEDITOR.replace( 'editor1' );
-    ajaxCalls();
+    //ajaxCalls();
     setUserName();
 }
 
@@ -46,6 +46,7 @@ function setUserName(){
     //adds number class to span element and adds the user entered in logni.html
     targetUserName.classList.add('numbers');
     targetUserName.innerHTML = sessionStorage.getItem('userName');
+    setInitialValues();
 }
 
 function getTargetTable(target){
@@ -72,41 +73,17 @@ function createTableRow(tab,a,b,c,d){
     cell4.innerHTML = d;
 }
 
-function getData(method, url){
-    return new Promise(function(resolve, reject){
-        var request = new XMLHttpRequest();
-        request.open(method, url);
-        //if request is sucssesful 
-        request.onload = function(){
-            if(this.status >= 200 && this.status < 300){
-                resolve(request.response);
-            }else{
-                reject({
-                    status: this.status,
-                    statusText: this.statusText
-                });
-            }
-        };
-        //if request fails
-        request.onerror = function(){
-            reject({
-                status: this.status,
-                statusText: this.statusText
-            });
-        };
-        request.send();
-    });
-}
-
 function setTotalUsersCounter(){
-    let totalSiteUsers = totalUsersArray.length;
+    let localTotalUsersArray = JSON.parse(localStorage.getItem("storedUsersArray") || []);
+    let totalSiteUsers = localTotalUsersArray.length;
     //displays the total number of users in the site.
     numberOfUsers.innerHTML = totalSiteUsers;
     asideUserCounter.innerHTML = totalSiteUsers;
 }
 
 function setTotalPostsCounter(){
-    let totalSitePosts = totalPostsArray.length;
+    let localTotalPostsArray = JSON.parse(localStorage.getItem("storedPostsArray") || []);
+    let totalSitePosts = localTotalPostsArray.length;
     //displays the total number of posts in the site.
     numberOfPosts.innerHTML = totalSitePosts;
     asidePostsCounter.innerHTML = totalSitePosts;
@@ -114,6 +91,7 @@ function setTotalPostsCounter(){
 }
 
 function setTotalPagesCounter(){
+    let localTotalPagesArray = JSON.parse(localStorage.getItem("storedPagesArray") || []);
     let totalSitePages = totalPagesArray.length;
     //displays the total number of pages in the site.
     numberOfPages.innerHTML = totalSitePages;
@@ -125,7 +103,8 @@ function numberWithCommas(x) {
 }
 
 function setTotalVisitsCounter(){
-    let totSiteUsrs = totalUsersArray.length;
+    let localTotSiteUsrs = JSON.parse(localStorage.getItem("storedUsersArray") || []);
+    let totSiteUsrs = localTotSiteUsrs.length;
     let totVisUsrs = totSiteUsrs * VISITSMULTIPLR;
     let formattedTotVisUsrs = '';
     //inserts a hypothetical number of user on the site, bases on total number of users.
@@ -133,15 +112,9 @@ function setTotalVisitsCounter(){
     numberOfVisists.innerHTML = formattedTotVisUsrs;
 }
 
-function setTotalUsersArray(array){
-    for (let item of array) {
-        //parses objects to be stored in localstorage
-        //localStorage.setItem("userObject", JSON.stringify(item));
-        //populates local users array with imported data
-        totalUsersArray.push(item);
-    }
-    //stores array of user objects into local sotrage
-    localStorage.setItem('storedUsersArray', JSON.stringify(totalUsersArray));
+function setInitialValues(){
+    //pull local sotorage array of users
+    let totalUsersArray = JSON.parse(localStorage.getItem("storedUsersArray") || []);
     //populates latest Users table and counters por posts and pages respectively
     setLatestUsersTable(latestUsersTab,totalUsersArray);
     setTotalUsersCounter();
@@ -150,6 +123,7 @@ function setTotalUsersArray(array){
     setTotalPagesCounter();
 }
 
+/*
 function setTotalPostsArray(array){
     for (let item of array) {
         //parses objects to be stored in localstorage
@@ -172,6 +146,7 @@ function setTotalPagesArray(array){
     //stores array of posts objects into local sotrage
     localStorage.setItem('storedPagesArray', JSON.stringify(totalPagesArray));
 }
+*/
 
 function setLatestUsersTable(tab,array){
     let tabTarget = 'latest'
@@ -222,35 +197,7 @@ function clearAllStorage(){
     ajaxFlag = false;
 }
 
-function ajaxCalls(){
-    //Ajax Request for registered Users
-    getData('GET', 'http://jsonplaceholder.typicode.com/users').then(function(data){
-        if(ajaxFlag == false){
-            let dataArray = JSON.parse(data);
-            setTotalUsersArray(dataArray);
-        }
-    }).catch(function(err){
-        console.log(err);
-    });
-    //Ajax Request for total Posts in Site
-    getData('GET', 'https://jsonplaceholder.typicode.com/posts').then(function(data){
-        if(ajaxFlag == false){
-            let dataArray = JSON.parse(data);
-            setTotalPostsArray(dataArray);
-        }
-    }).catch(function(err){
-        console.log(err);
-    });
-    //Ajax Request for total Pages in Site
-    getData('GET', './resources/jsonFiles/pages.json').then(function(data){
-        if(ajaxFlag == false){
-            let dataArray = JSON.parse(data);
-            setTotalPagesArray(dataArray);
-        }
-    }).catch(function(err){
-        console.log(err);
-    });
-}
+
 
 
 
