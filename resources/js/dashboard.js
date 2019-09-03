@@ -26,6 +26,7 @@ const newPostTitle = document.querySelector('#newPostTitle');
 const newPostBody = document.querySelector('#newPostBody');
 const newPageTitle = document.querySelector('#newPageTitle');
 const newPageBody = document.querySelector('#newPageBody');
+const newPagePublished = document.querySelector('#newPagePublished');
 const newPageMetaTags = document.querySelector('#newPageMetaTags');
 const newPageMetaDescription = document.querySelector('#newPageMetaDescription');
 const logOut = document.querySelector('#logOut');
@@ -291,8 +292,35 @@ function addNewPost(){
         "body": newPBody
     }
     //stores new object in local storage array
-    localStoragePostsArray.push(newUserEntry);
+    localStoragePostsArray.push(newPostEntry);
     localStorage.setItem("storedUsersArray", JSON.stringify(localStoragePostsArray));
+}
+
+function addNewPage(){
+    //assigns the array to work with
+    let localStoragePagesArray = JSON.parse(localStorage.getItem("storedPagesArray") || []);
+    let status  = newPagePublished.checked;
+    //creates new user object out of values inserted by new user modal
+    let newPaTitle = newPageTitle.value;
+    let newPaBody = newPageBody.value;
+    let newPaPub = '';
+    if(status == true){
+        newPaPub = true;
+    }else{
+        newPaPub = false;
+    }
+    let newPaMeTag = newPageMetaTags.value;
+    let newPaMeDes = newPageMetaDescription.value;
+    let newPageEntry = {
+        "title": newPaTitle,
+        "body": newPaBody,
+        "published": newPaPub,
+        "metaTags": newPaMeTag,
+        "metaDescription": newPaMeDes
+    }
+    //stores new object in local storage array
+    localStoragePagesArray.push(newPageEntry);
+    localStorage.setItem("storedUsersArray", JSON.stringify(localStoragePagesArray));
 }
 
 function clearAllStorage(){
