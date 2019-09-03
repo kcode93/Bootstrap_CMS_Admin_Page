@@ -74,7 +74,7 @@ function createTableRow(tab,a,b,c,d){
     cell4.innerHTML = d;
 }
 
-function setCurrentDate(){
+function getCurrentDate(){
     //creates array of months in a year
     let months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
     let currentDate = '';
@@ -130,7 +130,63 @@ function setCurrentDate(){
     //returns the current date
     currentDate = `${currentMonth} ${currentYear}`;
     return currentDate;
-    
+}
+
+function setRandomDate(){
+    //creates array of months in a year
+    let months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+    let randomNumber = Math.floor((Math.random() * 11) + 0);
+    let currentMonth = '';
+    let currentYear = PRESENTYEAR;
+    let randomDate = '';
+    //asign meaningful month based on the returned value of getMonth()
+    switch (randomNumber) {
+        case 0:
+            currentMonth = months[0];
+            break;
+        case 1:
+            currentMonth = months[1];
+            break;
+        case 2:
+            currentMonth = months[2];
+            break;
+        case 3:
+            currentMonth = months[3];
+            break;
+        case 4:
+            currentMonth = months[4];
+            break;
+        case 5:
+            currentMonth = months[5];
+            break;
+        case 6:
+            currentMonth = months[6];
+            break;
+        case 7:
+            currentMonth = months[7];
+            break;
+        case 8:
+            currentMonth = months[8];
+            break;
+        case 9:
+            currentMonth = months[9];
+            break;
+        case 10:
+            currentMonth = months[10];
+            break;
+        case 11:
+            currentMonth = months[11];
+            break;
+        case 12:
+            currentMonth = months[12];
+            break;
+        default:
+            break;
+    }
+    randomDate = `${currentMonth} ${currentYear}`;
+    return randomDate;
+    currentYear--;
+
 }
 
 function setTotalUsersCounter(){
@@ -208,7 +264,7 @@ function addNewUser(){
     //assigns the array to work with
     let localStorageUsersArray = JSON.parse(localStorage.getItem("storedUsersArray") || []);
     //creates new user object out of values inserted by new user modal
-    let newUJoined = PRESENTYEAR;
+    let newUJoined = getCurrentDate();
     let newUName = newUserName.value;
     let newUuser = newUserUsername.value;
     let newUEmail = newUserEmail.value;
