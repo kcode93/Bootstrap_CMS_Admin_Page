@@ -2,6 +2,7 @@
 //const totalPagesArray = [];
 //const totalPostsArray = [];
 //const totalUsersArray = [];
+const PRESENTYEAR = 2019;
 const VISITSMULTIPLR = 105;
 let ajaxFlag = false;
 
@@ -145,10 +146,9 @@ function setLatestUsersTable(tab,array){
 
 function addNewUser(){
     //assigns the array to work with
-    let dummyText ='';
     let localStorageUsersArray = JSON.parse(localStorage.getItem("storedUsersArray") || []);
     //creates new user object out of values inserted by new user modal
-    let newUJoined = 2019;
+    let newUJoined = PRESENTYEAR;
     let newUName = newUserName.value;
     let newUuser = newUserUsername.value;
     let newUEmail = newUserEmail.value;
