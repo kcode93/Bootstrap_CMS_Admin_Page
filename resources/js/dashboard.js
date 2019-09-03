@@ -1,7 +1,4 @@
 //Variables
-//const totalPagesArray = [];
-//const totalPostsArray = [];
-//const totalUsersArray = [];
 const PRESENTYEAR = 2019;
 const VISITSMULTIPLR = 105;
 let ajaxFlag = false;
@@ -42,7 +39,6 @@ logOut.addEventListener('click', clearAllStorage);
 function onLoad(){
     //implements CKEditor
     CKEDITOR.replace( 'editor1' );
-    //ajaxCalls();
     setUserName();
 }
 
@@ -71,6 +67,7 @@ function createTableRow(tab,a,b,c,d){
     let cell3 = row.insertCell(2);
     let cell4 = row.insertCell(3);
     cell4.classList.add('numbers');
+    cell4.classList.add('sho');
     cell1.innerHTML = a;
     cell2.innerHTML = b;
     cell3.innerHTML = c;
