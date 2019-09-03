@@ -74,6 +74,65 @@ function createTableRow(tab,a,b,c,d){
     cell4.innerHTML = d;
 }
 
+function setCurrentDate(){
+    //creates array of months in a year
+    let months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+    let currentDate = '';
+    let currentMonth = '';
+    //creates new date object
+    let d = new Date();
+    let numbMonth = d.getMonth();
+    let currentYear = d.getFullYear();
+    //asign meaningful month based on the returned value of getMonth()
+    switch (numbMonth) {
+        case 0:
+            currentMonth = months[0];
+            break;
+        case 1:
+            currentMonth = months[1];
+            break;
+        case 2:
+            currentMonth = months[2];
+            break;
+        case 3:
+            currentMonth = months[3];
+            break;
+        case 4:
+            currentMonth = months[4];
+            break;
+        case 5:
+            currentMonth = months[5];
+            break;
+        case 6:
+            currentMonth = months[6];
+            break;
+        case 7:
+            currentMonth = months[7];
+            break;
+        case 8:
+            currentMonth = months[8];
+            break;
+        case 9:
+            currentMonth = months[9];
+            break;
+        case 10:
+            currentMonth = months[10];
+            break;
+        case 11:
+            currentMonth = months[11];
+            break;
+        case 12:
+            currentMonth = months[12];
+            break;
+        default:
+            break;
+    }
+    //returns the current date
+    currentDate = `${currentMonth} ${currentYear}`;
+    return currentDate;
+    
+}
+
 function setTotalUsersCounter(){
     let localTotalUsersArray = JSON.parse(localStorage.getItem("storedUsersArray") || []);
     let totalSiteUsers = localTotalUsersArray.length;
@@ -145,6 +204,7 @@ function setLatestUsersTable(tab,array){
 }
 
 function addNewUser(){
+    let dummyText = '';
     //assigns the array to work with
     let localStorageUsersArray = JSON.parse(localStorage.getItem("storedUsersArray") || []);
     //creates new user object out of values inserted by new user modal
@@ -161,7 +221,6 @@ function addNewUser(){
     //stores new object in local storage array
     localStorageUsersArray.push(newUserEntry);
     localStorage.setItem("storedUsersArray", JSON.stringify(localStorageUsersArray));
-    //setInitialValues();
 }
 
 function clearAllStorage(){
