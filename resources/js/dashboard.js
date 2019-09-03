@@ -1,7 +1,6 @@
 //Variables
 const PRESENTYEAR = 2019;
 const VISITSMULTIPLR = 105;
-let ajaxFlag = false;
 
 //Selections
 const targetUserName = document.querySelector('#loggedUser');
@@ -266,7 +265,6 @@ function addNewPage(){
 
 function clearAllStorage(){
     localStorage.clear();
-    ajaxFlag = false;
 }
 
 
