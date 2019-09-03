@@ -9,7 +9,7 @@ function getUserName(){
     sessionStorage.setItem('userName',userNameInput.value);
 }
 
-function setContainerArrays(array){
+function setContainerArrays(array, i){
     let containerArray = [];
     let counter = '';
     let lsArrayName = '';
@@ -17,6 +17,7 @@ function setContainerArrays(array){
         //populates local users array with imported data
         containerArray.push(item);
     }
+    counter = i;
     //stores array of user objects into local sotrage
     if(counter == 0){
         lsArrayName = 'storedUsersArray';
@@ -32,14 +33,24 @@ function setContainerArrays(array){
 
 function ajaxCalls(){
     //Ajax Request for registered Users
-    getData('GET', 'http://jsonplaceholder.typicode.com/users').then(function(data){
-        if(ajaxFlag == false){
-            let dataArray = JSON.parse(data);
-            setContainerArrays(dataArray);
+    let source = '';
+    let numbRequests = 3;
+    for(let i = 0; i < numbRequests; i++){
+        if(i == 0){
+            source = 'http://jsonplaceholder.typicode.com/users';
+        }else if(i == 1){
+            source = 'https://jsonplaceholder.typicode.com/posts';
+        }else {
+            source = './resources/jsonFiles/pages.json';
         }
-    }).catch(function(err){
-        console.log(err);
-    });
+        getData('GET', source).then(function(data){
+            let dataArray = JSON.parse(data);
+            setContainerArrays(dataArray, i);
+        }).catch(function(err){
+            console.log(err);
+        });
+    }
+    
     //Ajax Request for total Posts in Site
     getData('GET', 'https://jsonplaceholder.typicode.com/posts').then(function(data){
         if(ajaxFlag == false){
