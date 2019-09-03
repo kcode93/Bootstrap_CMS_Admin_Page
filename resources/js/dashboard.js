@@ -262,7 +262,6 @@ function setLatestUsersTable(tab,array){
 }
 
 function addNewUser(){
-    let dummyText = '';
     //assigns the array to work with
     let localStorageUsersArray = JSON.parse(localStorage.getItem("storedUsersArray") || []);
     //creates new user object out of values inserted by new user modal
@@ -279,6 +278,21 @@ function addNewUser(){
     //stores new object in local storage array
     localStorageUsersArray.push(newUserEntry);
     localStorage.setItem("storedUsersArray", JSON.stringify(localStorageUsersArray));
+}
+
+function addNewPost(){
+    //assigns the array to work with
+    let localStoragePostsArray = JSON.parse(localStorage.getItem("storedPostsArray") || []);
+    //creates new user object out of values inserted by new user modal
+    let newPTitle = newPostTitle.value;
+    let newPBody = newPostBody.value;
+    let newPostEntry = {
+        "title": newPTitle,
+        "body": newPBody
+    }
+    //stores new object in local storage array
+    localStoragePostsArray.push(newUserEntry);
+    localStorage.setItem("storedUsersArray", JSON.stringify(localStoragePostsArray));
 }
 
 function clearAllStorage(){
