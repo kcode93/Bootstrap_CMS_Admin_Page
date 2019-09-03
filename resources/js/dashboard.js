@@ -34,6 +34,8 @@ const logOut = document.querySelector('#logOut');
 //Events
 document.addEventListener('DOMContentLoaded', onLoad);
 btnAddNewUser.addEventListener('click', addNewUser);
+btnAddNewPage.addEventListener('click', addNewPage);
+btnAddNewPost.addEventListener('click', addNewPost);
 logOut.addEventListener('click', clearAllStorage);
 
 //Functions
