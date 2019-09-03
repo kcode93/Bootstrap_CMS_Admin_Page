@@ -241,7 +241,7 @@ function setInitialValues(){
 
 function setLatestUsersTable(tab,array){
     let tabTarget = 'latest'
-    let groundYear = 2019;
+    let groundYear = setRandomDate();
     let localYear = '';
     let localName = '';
     let localUserName = '';
@@ -255,7 +255,6 @@ function setLatestUsersTable(tab,array){
         localTargetTable = getTargetTable(tabTarget);
         //gets the year the users joined, if not available replace value with groundYear
         createTableRow(tabTarget,localName,localUserName,localEmail,localYear);
-        groundYear--;
     }
 }
 
