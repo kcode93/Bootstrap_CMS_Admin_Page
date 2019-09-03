@@ -92,7 +92,7 @@ function setTotalPostsCounter(){
 
 function setTotalPagesCounter(){
     let localTotalPagesArray = JSON.parse(localStorage.getItem("storedPagesArray") || []);
-    let totalSitePages = totalPagesArray.length;
+    let totalSitePages = localTotalPagesArray.length;
     //displays the total number of pages in the site.
     numberOfPages.innerHTML = totalSitePages;
     asidePagesCounter.innerHTML = totalSitePages;
@@ -123,31 +123,6 @@ function setInitialValues(){
     setTotalPagesCounter();
 }
 
-/*
-function setTotalPostsArray(array){
-    for (let item of array) {
-        //parses objects to be stored in localstorage
-        //localStorage.setItem("postObject", JSON.stringify(item));
-        //populates local posts array with imported data
-        totalPostsArray.push(item);
-    }
-    //stores array of posts objects into local sotrage
-    localStorage.setItem('storedPostsArray', JSON.stringify(totalPostsArray));
-
-}
-
-function setTotalPagesArray(array){
-    for (let item of array) {
-        //parses objects to be stored in localstorage
-        //localStorage.setItem("pageObject", JSON.stringify(item));
-        //populates local pages array with imported data
-        totalPagesArray.push(item);
-    }
-    //stores array of posts objects into local sotrage
-    localStorage.setItem('storedPagesArray', JSON.stringify(totalPagesArray));
-}
-*/
-
 function setLatestUsersTable(tab,array){
     let tabTarget = 'latest'
     let groundYear = 2019;
@@ -169,7 +144,6 @@ function setLatestUsersTable(tab,array){
 }
 
 function addNewUser(){
-    ajaxFlag = true;
     //assigns the array to work with
     let dummyText ='';
     let localStorageUsersArray = JSON.parse(localStorage.getItem("storedUsersArray") || []);
@@ -184,12 +158,10 @@ function addNewUser(){
         "email": newUEmail,
         "joined": newUJoined
     }
-    //adds new user to local array 
-    totalUsersArray.push(newUserEntry);
     //stores new object in local storage array
     localStorageUsersArray.push(newUserEntry);
     localStorage.setItem("storedUsersArray", JSON.stringify(localStorageUsersArray));
-    setTotalUsersCounter();
+    //setInitialValues();
 }
 
 function clearAllStorage(){
