@@ -9,7 +9,8 @@
             "<meta name='author' content='Kenneth Garcia'>"
         ],
         "metaDescription": "Bootstrap, CMS Admin Site",
-        "published": true
+        "published": true,
+        "created": "Aug 10 2019"
 
     },
     {
@@ -22,7 +23,8 @@
             "<meta name='author' content='Kenneth Garcia'>"
         ],
         "metaDescription": "Bootstrap, CMS Admin Site",
-        "published": true
+        "published": true,
+        "created": "Jun 11 2019"
 
     },
     {
@@ -35,7 +37,8 @@
             "<meta name='author' content='Kenneth Garcia'>"
         ],
         "metaDescription": "Bootstrap, CMS Admin Site",
-        "published": true
+        "published": true,
+        "created": "Apr 22 2019"
 
     },
     {
@@ -48,7 +51,8 @@
             "<meta name='author' content='Kenneth Garcia'>"
         ],
         "metaDescription": "Bootstrap, CMS Admin Site",
-        "published": true
+        "published": true,
+        "created": "Jun 7 2019"
 
     },
     {
@@ -61,7 +65,8 @@
             "<meta name='author' content='Kenneth Garcia'>"
         ],
         "metaDescription": "Bootstrap, CMS Admin Site",
-        "published": true
+        "published": true,
+        "created": "Feb 14 2019"
 
     }
 ]
