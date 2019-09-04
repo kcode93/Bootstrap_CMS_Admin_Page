@@ -73,7 +73,7 @@ function createTableRow(tab,a,b,c,d){
     cell4.innerHTML = d;
 }
 
-function getCurrentFullDate(){
+function getFullCurrentDate(){
     //creates array of months in a year
     let months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
     let currentFullDate = '';
@@ -84,6 +84,7 @@ function getCurrentFullDate(){
     let numbMonth = d.getMonth();
     let currentYear = d.getFullYear();
     currentDate = d.getDate();
+    //ensures that date always has double digits
     if(currentDate < 10){
         currentDate = '0'+ currentDate;
     }
@@ -134,6 +135,19 @@ function getCurrentFullDate(){
     //returns the current date
     currentFullDate = `${currentMonth} ${currentDate} ${currentYear}`;
     return currentFullDate;
+}
+
+function getSplittedCurrentDate(){
+    let splittedDate = '';
+    //gets full date
+    let fullDate = getFullCurrentDate();
+    //splits the date into mont and date and year
+    let monthAndDate = fullDate.substring(0,5);
+    let year = fullDate.substring(6);
+    let onlyMonth = monthAndDate.substring(0,2);
+    //assembles new date with just month and year
+    splittedDate = onlyMonth + year;
+    return splittedDate;
 }
 
 function setTotalUsersCounter(){
