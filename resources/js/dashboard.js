@@ -74,14 +74,18 @@ function createTableRow(tab,a,b,c,d){
 }
 
 function getCurrentDate(){
+    //creates array of days in a week
+    let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
     //creates array of months in a year
     let months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
     let currentDate = '';
+    let currentDay = '';
     let currentMonth = '';
     //creates new date object
     let d = new Date();
     let numbMonth = d.getMonth();
     let currentYear = d.getFullYear();
+    let numbDay = d.getDay(); 
     //asign meaningful month based on the returned value of getMonth()
     switch (numbMonth) {
         case 0:
@@ -126,8 +130,34 @@ function getCurrentDate(){
         default:
             break;
     }
+
+    switch (numbDay) {
+        case 0:
+            currentDay = days[0];
+            break;
+        case 1:
+            currentDay = days[1];
+            break;
+        case 2:
+            currentDay = days[2];
+            break;
+        case 3:
+            currentDay = days[3];
+            break; 
+        case 4:
+            currentDay = days[4];
+            break;
+        case 5:
+            currentDay = days[5];
+            break;
+        case 6:
+            currentDay = days[6];
+            break;       
+        default:
+            break;
+    }
     //returns the current date
-    currentDate = `${currentMonth} ${currentYear}`;
+    currentDate = `${currentMonth} ${currentDay} ${currentYear}`;
     return currentDate;
 }
 
@@ -243,6 +273,7 @@ function addNewPage(){
     //creates new user object out of values inserted by new user modal
     let newPaTitle = newPageTitle.value;
     let newPaBody = newPageBody.value;
+    let newPaCreationDate = getCurrentDate();
     let newPaPub = '';
     if(status == true){
         newPaPub = true;
