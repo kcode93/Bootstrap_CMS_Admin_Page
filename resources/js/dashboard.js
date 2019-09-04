@@ -225,7 +225,7 @@ function addNewUser(){
     //assigns the array to work with
     let localStorageUsersArray = JSON.parse(localStorage.getItem("storedUsersArray") || []);
     //creates new user object out of values inserted by new user modal
-    let newUJoined = getCurrentDate();
+    let newUJoined = getSplittedCurrentDate();
     let newUName = newUserName.value;
     let newUuser = newUserUsername.value;
     let newUEmail = newUserEmail.value;
@@ -246,9 +246,11 @@ function addNewPost(){
     //creates new user object out of values inserted by new user modal
     let newPTitle = newPostTitle.value;
     let newPBody = newPostBody.value;
+    let newPCreated = getFullCurrentDate();
     let newPostEntry = {
         "title": newPTitle,
-        "body": newPBody
+        "body": newPBody,
+        "created": newPCreated
     }
     //stores new object in local storage array
     localStoragePostsArray.push(newPostEntry);
@@ -262,7 +264,7 @@ function addNewPage(){
     //creates new user object out of values inserted by new user modal
     let newPaTitle = newPageTitle.value;
     let newPaBody = newPageBody.value;
-    let newPaCreationDate = getCurrentDate();
+    let newPaCreationDate = getFullCurrentDate();
     let newPaPub = '';
     if(status == true){
         newPaPub = true;
@@ -276,7 +278,8 @@ function addNewPage(){
         "body": newPaBody,
         "published": newPaPub,
         "metaTags": newPaMeTag,
-        "metaDescription": newPaMeDes
+        "metaDescription": newPaMeDes,
+        "created": newPaCreationDate
     }
     //stores new object in local storage array
     localStoragePagesArray.push(newPageEntry);
