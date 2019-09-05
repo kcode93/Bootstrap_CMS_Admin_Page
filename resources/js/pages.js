@@ -1,10 +1,8 @@
 //Variables
 const AWESOMEICONCHECK = '<i class="fas fa-check"></i>';
 const AWESOMEICONX = '<i class="fas fa-times"></i>';
-const REGULAREDITBTN = '<a class="btn bg-primary-color sho" href="edit.html"><i class="fas fa-pencil-alt"></i> Edit</a>';
-const REGULARDELETEBTN = '<a href="#" class="btn bg-secondary-color sho"><i class="fas fa-trash-alt"></i> Delete</a>';
-const MOBILEEDITBTN = '<a class="btn bg-primary-color hid" href="edit.html"><i class="fas fa-pencil-alt"></i></a>';
-const MOBILEDELETEBTN = '<a href="#" class="btn bg-secondary-color hid"><i class="fas fa-trash-alt"></i></a>';
+const MOBILEEDITBTN = '<a class="btn bg-primary-color mx-2" href="edit.html"><i class="fas fa-pencil-alt"></i></a>';
+const MOBILEDELETEBTN = '<a href="#" class="btn bg-secondary-color mx-2"><i class="fas fa-trash-alt"></i></a>';
 
 //Selections
 const targetUserName = document.querySelector('#loggedUser');
@@ -56,13 +54,11 @@ function setPublishedAwesomeIcon(value){
     }
 }
 
-function createTableRow(tab,a,b,c,d){
+function createTableRow(tab,a,b,c){
     //targets table and adds a new row with the needed values
     const table = tab;
-    const editButton ='';
-    const deleteButton = '';
-    const mobileEditButton = '';
-    const mobileDeleteButton = '';
+    const mobileEditButton = MOBILEEDITBTN;
+    const mobileDeleteButton = MOBILEDELETEBTN;
     let row = table.insertRow(-1);
     let cell1 = row.insertCell(0);
     cell1.setAttribute('scope','row');
@@ -70,11 +66,10 @@ function createTableRow(tab,a,b,c,d){
     let cell3 = row.insertCell(2);
     cell3.classList.add('numbers');
     let cell4 = row.insertCell(3);
-    cell4.classList.add('sho');
     cell1.innerHTML = a;
     cell2.innerHTML = setPublishedAwesomeIcon(b);
     cell3.innerHTML = c;
-    cell4.innerHTML = d;
+    cell4.innerHTML = `${mobileEditButton} ${mobileDeleteButton}`;
 }
 
 function getFullCurrentDate(){
