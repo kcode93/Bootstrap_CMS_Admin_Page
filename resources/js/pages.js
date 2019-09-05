@@ -166,32 +166,26 @@ function numberWithCommas(x) {
 
 function setInitialValues(){
     //pull local sotorage array of users
-    let totalUsersArray = JSON.parse(localStorage.getItem("storedUsersArray") || []);
+    let totalPagesArray = JSON.parse(localStorage.getItem("storedPagesArray") || []);
     let initalTabTarget = pagesTable;
-    //populates latest Users table and counters por posts and pages respectively
-    setLatestUsersTable(initalTabTarget,totalUsersArray);
+    //populates  Users table and counters por posts and pages respectively
+    setPagesTable(initalTabTarget,totalPagesArray);
     setTotalUsersCounter();
     setTotalPostsCounter();
     setTotalPagesCounter();
 }
 
-function setLatestUsersTable(tab,array){
-    let locRandomDates = JSON.parse(localStorage.getItem("storedRandomDates") || []);
+function setPagesTable(tab,array){
     let tabTarget = tab;
-    let groundDate = '';
-    let localYear = '';
-    let localName = '';
-    let localUserName = '';
-    let localEmail = '';
-    //get users from totalUsersArray and populate latest users table
-    for (let i = 0; i < 10; i++) {
-        localName =  array[i].name;
-        localUserName = array[i].username;
-        localEmail = array[i].email;
-        localYear = array[i].joined || locRandomDates[i];
-        //localTargetTable = getTargetTable(tabTarget);
-        //gets the year the users joined, if not available replace value with groundYear
-        createTableRow(tabTarget,localName,localUserName,localEmail,localYear);
+    let pageTitle = '';
+    let pagePublished = '';
+    let pageCreated = '';
+    //get pages from totalPagesArray and populate pages table
+    for (let item of array) {
+        pageTitle = item.title;
+        pagePublished = item.published;
+        pageCreated = item.created;
+        createTableRow(tabTarget,pageTitle,pagePublished,pageCreated);
     }
 }
 
