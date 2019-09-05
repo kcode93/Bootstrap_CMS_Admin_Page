@@ -1,5 +1,4 @@
 //Variables
-const PRESENTYEAR = 2019;
 const VISITSMULTIPLR = 105;
 
 //Selections
