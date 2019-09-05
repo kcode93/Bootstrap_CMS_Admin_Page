@@ -4,11 +4,7 @@ const VISITSMULTIPLR = 105;
 
 //Selections
 const targetUserName = document.querySelector('#loggedUser');
-const numberOfPages = document.querySelector('#cardNumPages');
-const numberOfPosts = document.querySelector('#cardNumPosts');
-const numberOfUsers = document.querySelector('#cardNumUsers');
-const numberOfVisists = document.querySelector('#cardNumVisits');
-const latestUsersTab = document.querySelector('#latestUsersTable');
+const pagesTable = document.querySelector('#pagesTable');
 const asideUserCounter = document.querySelector('#asideUserCounter');
 const asidePostsCounter = document.querySelector('#asidePostsCounter');
 const asidePagesCounter = document.querySelector('#asidePagesCounter');
@@ -146,7 +142,6 @@ function setTotalUsersCounter(){
     let localTotalUsersArray = JSON.parse(localStorage.getItem("storedUsersArray") || []);
     let totalSiteUsers = localTotalUsersArray.length;
     //displays the total number of users in the site.
-    numberOfUsers.innerHTML = totalSiteUsers;
     asideUserCounter.innerHTML = totalSiteUsers;
 }
 
@@ -154,7 +149,6 @@ function setTotalPostsCounter(){
     let localTotalPostsArray = JSON.parse(localStorage.getItem("storedPostsArray") || []);
     let totalSitePosts = localTotalPostsArray.length;
     //displays the total number of posts in the site.
-    numberOfPosts.innerHTML = totalSitePosts;
     asidePostsCounter.innerHTML = totalSitePosts;
     
 }
@@ -163,7 +157,6 @@ function setTotalPagesCounter(){
     let localTotalPagesArray = JSON.parse(localStorage.getItem("storedPagesArray") || []);
     let totalSitePages = localTotalPagesArray.length;
     //displays the total number of pages in the site.
-    numberOfPages.innerHTML = totalSitePages;
     asidePagesCounter.innerHTML = totalSitePages;
 }
 
@@ -171,24 +164,13 @@ function numberWithCommas(x) {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
 
-function setTotalVisitsCounter(){
-    let localTotSiteUsrs = JSON.parse(localStorage.getItem("storedUsersArray") || []);
-    let totSiteUsrs = localTotSiteUsrs.length;
-    let totVisUsrs = totSiteUsrs * VISITSMULTIPLR;
-    let formattedTotVisUsrs = '';
-    //inserts a hypothetical number of user on the site, bases on total number of users.
-    formattedTotVisUsrs = numberWithCommas(totVisUsrs);
-    numberOfVisists.innerHTML = formattedTotVisUsrs;
-}
-
 function setInitialValues(){
     //pull local sotorage array of users
     let totalUsersArray = JSON.parse(localStorage.getItem("storedUsersArray") || []);
-    let initalTabTarget = latestUsersTab;
+    let initalTabTarget = pagesTable;
     //populates latest Users table and counters por posts and pages respectively
     setLatestUsersTable(initalTabTarget,totalUsersArray);
     setTotalUsersCounter();
-    setTotalVisitsCounter();
     setTotalPostsCounter();
     setTotalPagesCounter();
 }
