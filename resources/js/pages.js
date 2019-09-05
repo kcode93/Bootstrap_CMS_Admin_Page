@@ -239,10 +239,7 @@ function addNewPost(){
 function addNewPage(){
     //assigns the array to work with
     let localStoragePagesArray = JSON.parse(localStorage.getItem("storedPagesArray") || []);
-    let status  = newPagePublished.checked;
-    if(status === null){
-        status = false;
-    }
+    let status  = newPagePublished.checked || false;
     //creates new user object out of values inserted by new user modal
     let newPaTitle = newPageTitle.value;
     let newPaBody = newPageBody.value;
