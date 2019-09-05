@@ -38,6 +38,7 @@ function onLoad(){
     //implements CKEditor
     CKEDITOR.replace( 'editor1' );
     setUserName();
+    getSplittedCurrentDate()
 }
 
 function setUserName(){
@@ -64,21 +65,32 @@ function createTableRow(tab,a,b,c,d){
     cell4.innerHTML = d;
 }
 
+function getStringDate(date){
+    const PREFIXZERO = '0';
+    let stringDate = '';
+    //converts the date into a string and add a zero to the number if under 10 to ensure double digits
+    if(date < 10){
+        stringDate = PREFIXZERO + date.toString();
+    }else{
+        stringDate = date.toString();
+    }
+    return stringDate;
+}
+
 function getFullCurrentDate(){
     //creates array of months in a year
     let months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
     let currentFullDate = '';
     let currentDate = '';
     let currentMonth = '';
+    let stringDate = '';
     //creates new date object
     let d = new Date();
     let numbMonth = d.getMonth();
     let currentYear = d.getFullYear();
     currentDate = d.getDate();
     //ensures that date always has double digits
-    if(currentDate < 10){
-        currentDate = '0'+ currentDate;
-    }
+    stringDate = getStringDate(currentDate);
     //asign meaningful month based on the returned value of getMonth()
     switch (numbMonth) {
         case 0:
@@ -124,7 +136,6 @@ function getFullCurrentDate(){
             break;
     }
     //returns the current date
-    currentFullDate = `${currentMonth} ${currentDate} ${currentYear}`;
     return currentFullDate;
 }
 
@@ -133,9 +144,9 @@ function getSplittedCurrentDate(){
     //gets full date
     let fullDate = getFullCurrentDate();
     //splits the date into mont and date and year
-    let monthAndDate = fullDate.substring(0,5);
-    let year = fullDate.substring(6);
-    let onlyMonth = monthAndDate.substring(0,2);
+    let monthAndDate = fullDate.substring(0,6);
+    let year = fullDate.substring(7);
+    let onlyMonth = monthAndDate.substring(0,4);
     //assembles new date with just month and year
     splittedDate = onlyMonth + year;
     return splittedDate;
