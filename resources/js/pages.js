@@ -1,6 +1,6 @@
 //Variables
-const PRESENTYEAR = 2019;
-const VISITSMULTIPLR = 105;
+const AWESOMEICONCHECK = '<i class="fas fa-check"></i>';
+const AWESOMEICONX = '<i class="fas fa-times"></i>';
 
 //Selections
 const targetUserName = document.querySelector('#loggedUser');
@@ -44,6 +44,14 @@ function setUserName(){
     setInitialValues();
 }
 
+function setPublishedAwesomeIcon(value){
+    if(value == true){
+        return AWESOMEICONCHECK;
+    }else{
+        return AWESOMEICONX;
+    }
+}
+
 function createTableRow(tab,a,b,c,d){
     //targets table and adds a new row with the needed values
     const table = tab;
@@ -56,7 +64,7 @@ function createTableRow(tab,a,b,c,d){
     cell4.classList.add('numbers');
     cell4.classList.add('sho');
     cell1.innerHTML = a;
-    cell2.innerHTML = b;
+    cell2.innerHTML = setPublishedAwesomeIcon(b);
     cell3.innerHTML = c;
     cell4.innerHTML = d;
 }
