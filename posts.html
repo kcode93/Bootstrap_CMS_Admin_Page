@@ -127,12 +127,49 @@
                                 </div><!--end of col-md-12-->
                             </div><!--end of row-->
                             <table id="postsTable" class="table table-striped table-hover text-center">
-                                <tr>
+                                <thead>
+                                    <tr>
                                     <th scope="col" class="bold">Title</th>
                                     <th scope="col" class="bold">Published</th>
                                     <th scope="col" class="bold">Created</th>
                                     <th></th>
-                                </tr>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row" class="align-middle"><a type="button" data-toggle="modal" data-target="#showPost">Life is Good</a></th>
+                                        <td class="align-middle"><i class="fas fa-check"></i></td>
+                                        <td class="align-middle">Dec 12, 2016</td>
+                                        <td>
+                                            <a class="btn bg-primary-color sho" href="edit.html"><i class="fas fa-pencil-alt"></i> Edit</a>
+                                            <a href="#" class="btn bg-secondary-color sho"><i class="fas fa-trash-alt"></i> Delete</a>
+                                            <a class="align-middle sho" type="button" data-toggle="modal" data-target="#showPost"><i id="eye" class="fas fa-eye"></i></a>
+                                            <a class="btn bg-primary-color hid" href="edit.html"><i class="fas fa-pencil-alt"></i></a>
+                                            <a href="#" class="btn bg-secondary-color hid"><i class="fas fa-trash-alt"></i></a>
+                                            <a class="align-middle hid" type="button" data-toggle="modal" data-target="#showPost"><i id="eye" class="fas fa-eye"></i></a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" class="align-middle">Story of my Life</th>
+                                        <td class="align-middle"><i class="fas fa-check"></i></td>
+                                        <td class="align-middle">Dec 12, 2016</td>
+                                        <td>
+                                            <a class="btn bg-primary-color" href="edit.html"><i class="fas fa-pencil-alt"></i> Edit</a>
+                                            <a href="#" class="btn bg-secondary-color"><i class="fas fa-trash-alt"></i> Delete</a>
+                                            <a class="align-middle" href="#"><i id="eye" class="fas fa-eye"></i></a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" class="align-middle">Happy Memories</th>
+                                        <td class="align-middle"><i class="fas fa-check"></i></td>
+                                        <td class="align-middle">Dec 12, 2016</td>
+                                        <td>
+                                            <a class="btn bg-primary-color" href="edit.html"><i class="fas fa-pencil-alt"></i> Edit</a>
+                                            <a href="#" class="btn bg-secondary-color"><i class="fas fa-trash-alt"></i> Delete</a>
+                                            <a class="align-middle" href="#"><i id="eye" class="fas fa-eye"></i></a>
+                                        </td>
+                                    </tr>
+                                </tbody>
                             </table>
                         </div><!--end of card-->
                     </div><!--end of col-md-9-->
