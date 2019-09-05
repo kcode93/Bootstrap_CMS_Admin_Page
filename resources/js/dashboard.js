@@ -48,17 +48,9 @@ function setUserName(){
     setInitialValues();
 }
 
-function getTargetTable(target){
-    //used to get a dynamic target for createTableRow()
-    if(target === 'latest'){
-        return latestUsersTab;
-    }
-}
-
 function createTableRow(tab,a,b,c,d){
     //targets table and adds a new row with the needed values
-    const targetTable = getTargetTable(tab);
-    const table = targetTable;
+    const table = tab;
     let row = table.insertRow(-1);
     let cell1 = row.insertCell(0);
     cell1.setAttribute('scope','row');
@@ -192,7 +184,7 @@ function setTotalVisitsCounter(){
 function setInitialValues(){
     //pull local sotorage array of users
     let totalUsersArray = JSON.parse(localStorage.getItem("storedUsersArray") || []);
-    let initalTabTarget = 'latest';
+    let initalTabTarget = latestUsersTab;
     //populates latest Users table and counters por posts and pages respectively
     setLatestUsersTable(initalTabTarget,totalUsersArray);
     setTotalUsersCounter();
