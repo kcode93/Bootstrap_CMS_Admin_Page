@@ -1,7 +1,7 @@
 //Variables
 const AWESOMEICONCHECK = '<i class="fas fa-check"></i>';
 const AWESOMEICONX = '<i class="fas fa-times"></i>';
-const MOBILEEDITBTN = '<a class="btn bg-primary-color mx-2" href="edit.html"><i class="fas fa-pencil-alt"></i></a>';
+const MOBILEEDITBTN = '<a class="btn bg-primary-color mx-2" href="editPage.html"><i class="fas fa-pencil-alt"></i></a>';
 const MOBILEDELETEBTN = '<a href="#" class="btn bg-secondary-color mx-2"><i class="fas fa-trash-alt"></i></a>';
 
 //Selections
