@@ -54,12 +54,13 @@ function setPublishedAwesomeIcon(value){
     }
 }
 
-function createTableRow(tab,a,b,c){
+function createTableRow(tab,a,b,c,d){
     //targets table and adds a new row with the needed values
     const table = tab;
-    const mobileEditButton = MOBILEEDITBTN;
-    const mobileDeleteButton = MOBILEDELETEBTN;
+    let mobileEditButton = MOBILEEDITBTN;
+    let mobileDeleteButton = MOBILEDELETEBTN;
     let row = table.insertRow(-1);
+    row.setAttribute('id',d);
     let cell1 = row.insertCell(0);
     cell1.setAttribute('scope','row');
     let cell2 = row.insertCell(1);
@@ -72,21 +73,32 @@ function createTableRow(tab,a,b,c){
     cell4.innerHTML = `${mobileEditButton} ${mobileDeleteButton}`;
 }
 
+function getStringDate(date){
+    const PREFIXZERO = '0';
+    let stringDate = '';
+    //converts the date into a string and add a zero to the number if under 10 to ensure double digits
+    if(date < 10){
+        stringDate = PREFIXZERO + date.toString();
+    }else{
+        stringDate = date.toString();
+    }
+    return stringDate;
+}
+
 function getFullCurrentDate(){
     //creates array of months in a year
     let months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
     let currentFullDate = '';
     let currentDate = '';
     let currentMonth = '';
+    let stringDate = '';
     //creates new date object
     let d = new Date();
     let numbMonth = d.getMonth();
     let currentYear = d.getFullYear();
     currentDate = d.getDate();
     //ensures that date always has double digits
-    if(currentDate < 10){
-        currentDate = '0'+ currentDate;
-    }
+    stringDate = getStringDate(currentDate);
     //asign meaningful month based on the returned value of getMonth()
     switch (numbMonth) {
         case 0:
@@ -132,7 +144,6 @@ function getFullCurrentDate(){
             break;
     }
     //returns the current date
-    currentFullDate = `${currentMonth} ${currentDate} ${currentYear}`;
     return currentFullDate;
 }
 
@@ -191,12 +202,16 @@ function setPagesTable(tab,array){
     let pageTitle = '';
     let pagePublished = '';
     let pageCreated = '';
+    let pageIndexOf = 0;
+    let stringPageIndexOf = '';
     //get pages from totalPagesArray and populate pages table
     for (let item of array) {
         pageTitle = item.title;
         pagePublished = item.published;
         pageCreated = item.created;
-        createTableRow(tabTarget,pageTitle,pagePublished,pageCreated);
+        stringPageIndexOf = pageIndexOf.toString();
+        createTableRow(tabTarget,pageTitle,pagePublished,pageCreated, stringPageIndexOf);
+        pageIndexOf++;
     }
 }
 
