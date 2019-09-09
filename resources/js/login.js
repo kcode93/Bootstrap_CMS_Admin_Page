@@ -4,15 +4,15 @@ const CURRENTYEAR = 2019;
 //Selection
 const userNameInput = document.querySelector('#pageUserName');
 const loginBtn = document.querySelector('#btnLogin');
+
 //Events
 document.addEventListener('click',getUserName);
+
 //Function
 function getUserName(){
     ajaxCalls();
     sessionStorage.setItem('userName',userNameInput.value);
 }
-
-
 
 function setContainerArrays(array, i){
     let containerArray = [];
@@ -135,19 +135,22 @@ function setRandomDate(year){
         default:
             break;
     }
+    //returs the random date
     randomDate = `${currentMonth} ${currentYear}`;
     return randomDate;
 }
 
 function setRandomDateArray(){
-    let thisYear = CURRENTYEAR;
+    //obtain array of stored users for reference
     let locUsrArr = JSON.parse(localStorage.getItem("storedUsersArray") || []);
     let localRandomDates = [];
     let newDateEntry = '';
+    //populate new random dates array
     for(let i = 0; i < locUsrArr.length; i++){
         newDateEntry = setRandomDate(thisYear);
         localRandomDates.push(newDateEntry);
         thisYear--;
     }
+    //store random dates array in local storage
     localStorage.setItem("storedRandomDates", JSON.stringify(localRandomDates));
 }
