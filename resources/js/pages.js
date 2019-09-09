@@ -1,8 +1,8 @@
 //Variables
 const AWESOMEICONCHECK = '<i class="fas fa-check"></i>';
 const AWESOMEICONX = '<i class="fas fa-times"></i>';
-const MOBILEEDITBTN = '<a class="btn bg-primary-color mx-2" href="editPage.html"><i class="fas fa-pencil-alt"></i></a>';
-const MOBILEDELETEBTN = '<a href="#" class="btn bg-secondary-color mx-2"><i class="fas fa-trash-alt"></i></a>';
+const MOBILEEDITBTN = '<a class="btn bg-primary-color mx-2 editBtn" href="editPage.html"><i class="fas fa-pencil-alt"></i></a>';
+const MOBILEDELETEBTN = '<a href="#" class="btn bg-secondary-color mx-2 deleteBtn"><i class="fas fa-trash-alt"></i></a>';
 
 //Selections
 const targetUserName = document.querySelector('#loggedUser');
@@ -59,18 +59,41 @@ function createTableRow(tab,a,b,c,d){
     const table = tab;
     let mobileEditButton = MOBILEEDITBTN;
     let mobileDeleteButton = MOBILEDELETEBTN;
+    let localEditBtn;
+    let localDelBtn;
     let row = table.insertRow(-1);
     row.setAttribute('id',d);
     let cell1 = row.insertCell(0);
+    //add the scope attribute to the new cell
     cell1.setAttribute('scope','row');
     let cell2 = row.insertCell(1);
     let cell3 = row.insertCell(2);
+    //add the numbers class to the cell
     cell3.classList.add('numbers');
     let cell4 = row.insertCell(3);
     cell1.innerHTML = a;
     cell2.innerHTML = setPublishedAwesomeIcon(b);
     cell3.innerHTML = c;
     cell4.innerHTML = `${mobileEditButton} ${mobileDeleteButton}`;
+    //targets the new added buttons
+    localEditBtn = document.querySelector('.editBtn');
+    localDelBtn = document.querySelector('.deleteBtn');
+    //adds a click event listener to the edit button
+    localEditBtn.addEventListener('click',(d) => {
+        //saves the id of the clicked button
+        localStorage.setItem('editTargetID', d);
+    });
+    //adds a click event listener to the delete button
+    localDelBtn.addEventListener('click',(d) => {
+        //deletes the page from table
+        let lcPagesArray = JSON.parse(localStorage.getItem("storedPagesArray") || []);
+        lcPagesArray.splice(0,d);
+        
+        table.deleteRow(d);
+        localStorage.setItem('editTargetID', d);
+    });
+
+
 }
 
 function getStringDate(date){
@@ -211,6 +234,7 @@ function setPagesTable(tab,array){
         pageCreated = item.created;
         stringPageIndexOf = pageIndexOf.toString();
         createTableRow(tabTarget,pageTitle,pagePublished,pageCreated, stringPageIndexOf);
+        //keeps tabs of the id counters
         pageIndexOf++;
     }
 }
