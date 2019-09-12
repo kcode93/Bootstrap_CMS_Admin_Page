@@ -169,6 +169,7 @@ function getFullCurrentDate(){
             break;
     }
     //returns the current date
+    currentFullDate = `${currentMonth} ${stringDate} ${currentYear}`;
     return currentFullDate;
 }
 
