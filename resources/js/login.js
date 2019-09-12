@@ -27,7 +27,6 @@ function setContainerArrays(array, i){
     if(counter == 0){
         lsArrayName = 'storedUsersArray';
         localStorage.setItem(lsArrayName, JSON.stringify(containerArray));
-        setRandomDateArray();
     }else if(counter == 1){
         lsArrayName = 'storedPostsArray';
         localStorage.setItem(lsArrayName, JSON.stringify(containerArray));
@@ -35,6 +34,7 @@ function setContainerArrays(array, i){
         lsArrayName = 'storedPagesArray';
         localStorage.setItem(lsArrayName, JSON.stringify(containerArray));
     }
+    setRandomDateArray();
 }
 
 function getData(method, url){
@@ -145,6 +145,7 @@ function setRandomDateArray(){
     let locUsrArr = JSON.parse(localStorage.getItem("storedUsersArray") || []);
     let localRandomDates = [];
     let newDateEntry = '';
+    let thisYear = CURRENTYEAR;
     //populate new random dates array
     for(let i = 0; i < locUsrArr.length; i++){
         newDateEntry = setRandomDate(thisYear);
