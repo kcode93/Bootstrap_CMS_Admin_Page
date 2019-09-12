@@ -75,9 +75,11 @@ function createTableRow(tab,a,b,c,d){
     cell2.innerHTML = setPublishedAwesomeIcon(b);
     cell3.innerHTML = c;
     cell4.innerHTML = `${mobileEditButton} ${mobileDeleteButton}`;
-    //targets the new added buttons
+    //targets the new added buttons and adds a respective id number
     localEditBtn = document.querySelector('.editBtn');
+    localEditBtn.setAttribute('id', d);
     localDelBtn = document.querySelector('.deleteBtn');
+    localDelBtn.setAttribute('id', d);
     //adds a click event listener to the edit button
     localEditBtn.addEventListener('click',(d) => {
         //saves the id of the clicked button
