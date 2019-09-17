@@ -88,11 +88,10 @@ function createTableRow(tab,a,b,c,d){
     //adds a click event listener to the delete button
     localDelBtn.addEventListener('click',(d) => {
         //deletes the page from table
-        let lcPagesArray = JSON.parse(localStorage.getItem("storedPagesArray") || []);
-        lcPagesArray.splice(0,d);
-        
-        table.deleteRow(d);
-        localStorage.setItem('editTargetID', d);
+        //let lcPagesArray = JSON.parse(localStorage.getItem("storedPagesArray") || []);
+        //lcPagesArray.splice(0,d);
+        //table.deleteRow(d);
+        //localStorage.setItem('editTargetID', d);
     });
 
 
