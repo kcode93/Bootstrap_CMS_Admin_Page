@@ -64,9 +64,10 @@ function getData(method, url){
 }
 
 function ajaxCalls(){
-    //Ajax Request for registered Users
+    //Ajax calls for the users, pages and posts
     let source = '';
     let numbRequests = 3;
+    //changes the source of the ajax call dynamically 
     for(let i = 0; i < numbRequests; i++){
         if(i == 0){
             source = 'http://jsonplaceholder.typicode.com/users';
@@ -76,6 +77,7 @@ function ajaxCalls(){
             source = './resources/jsonFiles/pages.json';
         }
         getData('GET', source).then(function(data){
+            //retrieves data and sets the array of results
             let dataArray = JSON.parse(data);
             setContainerArrays(dataArray, i);
         }).catch(function(err){
