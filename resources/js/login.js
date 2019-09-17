@@ -72,7 +72,7 @@ function ajaxCalls(){
             source = 'http://jsonplaceholder.typicode.com/users';
         }else if(i == 1){
             source = 'https://jsonplaceholder.typicode.com/posts';
-        }else {
+        }else if(i ==2) {
             source = './resources/jsonFiles/pages.json';
         }
         getData('GET', source).then(function(data){
