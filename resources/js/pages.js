@@ -69,6 +69,7 @@ function createTableRow(tab,a,b,c,d){
     let localDelBtn;
     let row = table.insertRow(-1);
     row.setAttribute('id',d);
+    let dynamicId = row.getAttribute('id').toString();
     let cell1 = row.insertCell(0);
     //add the scope attribute to the new cell
     cell1.setAttribute('scope','row');
@@ -83,19 +84,9 @@ function createTableRow(tab,a,b,c,d){
     cell4.innerHTML = `${mobileEditButton} ${mobileDeleteButton}`;
     //targets the new added buttons and adds a respective id number
     localEditBtn = document.querySelector('.editBtn');
-    localEditBtn.setAttribute('id', d);
+    localEditBtn.setAttribute('id', dynamicId);
     localDelBtn = document.querySelector('.deleteBtn');
-    localDelBtn.setAttribute('id', d);
-    //adds a click event listener to the edit button
-    localEditBtn.addEventListener('click', getTargetEditID);
-    //adds a click event listener to the delete button
-    localDelBtn.addEventListener('click',(d) => {
-        //deletes the page from table
-        //let lcPagesArray = JSON.parse(localStorage.getItem("storedPagesArray") || []);
-        //lcPagesArray.splice(0,d);
-        //table.deleteRow(d);
-        //localStorage.setItem('editTargetID', d);
-    });
+    localDelBtn.setAttribute('id', dynamicId);
 }
 
 function getStringDate(date){
