@@ -260,23 +260,25 @@ function addNewPost(){
     localStorage.setItem("storedPostsArray", JSON.stringify(localStoragePostsArray));
 }
 
-function addNewPage(){
+function addNewPage() {
     //assigns the array to work with
     let localStoragePagesArray = JSON.parse(localStorage.getItem("storedPagesArray") || []);
-    let status  = newPagePublished.checked;
+    let status = newPagePublished.checked || false;
     //creates new user object out of values inserted by new user modal
     let newPaTitle = newPageTitle.value;
     let newPaBody = newPageBody.value;
     let newPaCreationDate = getFullCurrentDate();
+    let currID = localStoragePagesArray.length - 1;
     let newPaPub = '';
-    if(status == true){
+    if (status == true) {
         newPaPub = true;
-    }else{
+    } else {
         newPaPub = false;
     }
     let newPaMeTag = newPageMetaTags.value;
     let newPaMeDes = newPageMetaDescription.value;
     let newPageEntry = {
+        "id": currID + 1,
         "title": newPaTitle,
         "body": newPaBody,
         "published": newPaPub,
