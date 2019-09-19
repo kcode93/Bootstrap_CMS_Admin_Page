@@ -69,7 +69,6 @@ function createTableRow(tab, a, b, c, d) {
     let localDelBtn;
     let row = table.insertRow(-1);
     row.setAttribute('id', d);
-    let dynamicId = row.getAttribute('id');
     let cell1 = row.insertCell(0);
     //add the scope attribute to the new cell
     cell1.setAttribute('scope', 'row');
@@ -83,11 +82,8 @@ function createTableRow(tab, a, b, c, d) {
     cell3.innerHTML = c;
     cell4.innerHTML = `${mobileEditButton} ${mobileDeleteButton}`;
     //targets the new added buttons and adds a respective id number
-    let strID = dynamicId.toString();
     localEditBtn = document.querySelector('.editBtn');
-    localEditBtn.setAttribute('id', strID);
     localDelBtn = document.querySelector('.deleteBtn');
-    localDelBtn.setAttribute('id', strID);
 }
 
 function getStringDate(date) {
@@ -278,6 +274,7 @@ function addNewPage() {
     let newPaTitle = newPageTitle.value;
     let newPaBody = newPageBody.value;
     let newPaCreationDate = getFullCurrentDate();
+    let currID = localStoragePagesArray.length - 1;
     let newPaPub = '';
     if (status == true) {
         newPaPub = true;
@@ -287,6 +284,7 @@ function addNewPage() {
     let newPaMeTag = newPageMetaTags.value;
     let newPaMeDes = newPageMetaDescription.value;
     let newPageEntry = {
+        "id": currID + 1,
         "title": newPaTitle,
         "body": newPaBody,
         "published": newPaPub,
