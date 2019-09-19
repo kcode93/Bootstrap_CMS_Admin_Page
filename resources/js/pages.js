@@ -1,8 +1,8 @@
 //Variables
 const AWESOMEICONCHECK = '<i class="fas fa-check"></i>';
 const AWESOMEICONX = '<i class="fas fa-times"></i>';
-const MOBILEEDITBTN = '<a class="btn bg-primary-color mx-2 editBtn" href="editPage.html"><i class="fas fa-pencil-alt"></i></a>';
-const MOBILEDELETEBTN = '<a href="#" class="btn bg-secondary-color mx-2 deleteBtn"><i class="fas fa-trash-alt"></i></a>';
+const MOBILEEDITBTN = '<a id="p" class="btn bg-primary-color mx-2 editBtn" href="editPage.html"><i class="fas fa-pencil-alt"></i></a>';
+const MOBILEDELETEBTN = '<a id="pa" href="#" class="btn bg-secondary-color mx-2 deleteBtn"><i class="fas fa-trash-alt"></i></a>';
 
 //Selections
 const targetUserName = document.querySelector('#loggedUser');
@@ -63,12 +63,15 @@ function getTargetEditID() {
 function createTableRow(tab, a, b, c, d) {
     //targets table and adds a new row with the needed values
     const table = tab;
+    let rowID = 'prow';
+    let btnID = 'p';
+    let dynamicID = d.toString();
     let mobileEditButton = MOBILEEDITBTN;
     let mobileDeleteButton = MOBILEDELETEBTN;
     let localEditBtn;
     let localDelBtn;
     let row = table.insertRow(-1);
-    row.setAttribute('id', d);
+    row.setAttribute('id', rowID + dynamicID);
     let cell1 = row.insertCell(0);
     //add the scope attribute to the new cell
     cell1.setAttribute('scope', 'row');
@@ -82,8 +85,11 @@ function createTableRow(tab, a, b, c, d) {
     cell3.innerHTML = c;
     cell4.innerHTML = `${mobileEditButton} ${mobileDeleteButton}`;
     //targets the new added buttons and adds a respective id number
-    localEditBtn = document.querySelector('.editBtn');
-    localDelBtn = document.querySelector('.deleteBtn');
+    localEditBtn = document.querySelector('#pe');
+    localDelBtn = document.querySelector('#pd');
+    localEditBtn.id = btnID + dynamicID;
+    localDelBtn.id = btnID + dynamicID;
+
 }
 
 function getStringDate(date) {
