@@ -33,34 +33,34 @@ btnAddNewPost.addEventListener('click', addNewPost);
 logOut.addEventListener('click', clearAllStorage);
 
 //Functions
-function onLoad(){
+function onLoad() {
     //implements CKEditor
-    CKEDITOR.replace( 'editor1' );
+    CKEDITOR.replace('editor1');
     setUserName();
 }
 
-function setUserName(){
+function setUserName() {
     //adds number class to span element and adds the user entered in logni.html
     targetUserName.classList.add('numbers');
     targetUserName.innerHTML = sessionStorage.getItem('userName');
     setInitialValues();
 }
 
-function setPublishedAwesomeIcon(value){
-    if(value == true){
+function setPublishedAwesomeIcon(value) {
+    if (value == true) {
         return AWESOMEICONCHECK;
-    }else{
+    } else {
         return AWESOMEICONX;
     }
 }
 
-function getTargetEditID(){
+function getTargetEditID() {
     let curBtnId = this.getAttribute('id');
     let target = `#${curBtnId.toString()}`;
     let targetRow = document.querySelector(target);
 }
 
-function createTableRow(tab,a,b,c,d){
+function createTableRow(tab, a, b, c, d) {
     //targets table and adds a new row with the needed values
     const table = tab;
     let mobileEditButton = MOBILEEDITBTN;
@@ -68,11 +68,11 @@ function createTableRow(tab,a,b,c,d){
     let localEditBtn;
     let localDelBtn;
     let row = table.insertRow(-1);
-    row.setAttribute('id',d);
-    let dynamicId = row.getAttribute('id').toString();
+    row.setAttribute('id', d);
+    let dynamicId = row.getAttribute('id');
     let cell1 = row.insertCell(0);
     //add the scope attribute to the new cell
-    cell1.setAttribute('scope','row');
+    cell1.setAttribute('scope', 'row');
     let cell2 = row.insertCell(1);
     let cell3 = row.insertCell(2);
     //add the numbers class to the cell
@@ -83,25 +83,26 @@ function createTableRow(tab,a,b,c,d){
     cell3.innerHTML = c;
     cell4.innerHTML = `${mobileEditButton} ${mobileDeleteButton}`;
     //targets the new added buttons and adds a respective id number
+    let strID = dynamicId.toString();
     localEditBtn = document.querySelector('.editBtn');
-    localEditBtn.setAttribute('id', dynamicId);
+    localEditBtn.setAttribute('id', strID);
     localDelBtn = document.querySelector('.deleteBtn');
-    localDelBtn.setAttribute('id', dynamicId);
+    localDelBtn.setAttribute('id', strID);
 }
 
-function getStringDate(date){
+function getStringDate(date) {
     const PREFIXZERO = '0';
     let stringDate = '';
     //converts the date into a string and add a zero to the number if under 10 to ensure double digits
-    if(date < 10){
+    if (date < 10) {
         stringDate = PREFIXZERO + date.toString();
-    }else{
+    } else {
         stringDate = date.toString();
     }
     return stringDate;
 }
 
-function getFullCurrentDate(){
+function getFullCurrentDate() {
     //creates array of months in a year
     let months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
     let currentFullDate = '';
@@ -164,35 +165,35 @@ function getFullCurrentDate(){
     return currentFullDate;
 }
 
-function getSplittedCurrentDate(){
+function getSplittedCurrentDate() {
     let splittedDate = '';
     //gets full date
     let fullDate = getFullCurrentDate();
     //splits the date into mont and date and year
-    let monthAndDate = fullDate.substring(0,5);
+    let monthAndDate = fullDate.substring(0, 5);
     let year = fullDate.substring(6);
-    let onlyMonth = monthAndDate.substring(0,2);
+    let onlyMonth = monthAndDate.substring(0, 2);
     //assembles new date with just month and year
     splittedDate = onlyMonth + year;
     return splittedDate;
 }
 
-function setTotalUsersCounter(){
+function setTotalUsersCounter() {
     let localTotalUsersArray = JSON.parse(localStorage.getItem("storedUsersArray") || []);
     let totalSiteUsers = localTotalUsersArray.length;
     //displays the total number of users in the site.
     asideUserCounter.innerHTML = totalSiteUsers;
 }
 
-function setTotalPostsCounter(){
+function setTotalPostsCounter() {
     let localTotalPostsArray = JSON.parse(localStorage.getItem("storedPostsArray") || []);
     let totalSitePosts = localTotalPostsArray.length;
     //displays the total number of posts in the site.
     asidePostsCounter.innerHTML = totalSitePosts;
-    
+
 }
 
-function setTotalPagesCounter(){
+function setTotalPagesCounter() {
     let localTotalPagesArray = JSON.parse(localStorage.getItem("storedPagesArray") || []);
     let totalSitePages = localTotalPagesArray.length;
     //displays the total number of pages in the site.
@@ -203,18 +204,18 @@ function numberWithCommas(x) {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
 
-function setInitialValues(){
+function setInitialValues() {
     //pull local sotorage array of users
     let totalPagesArray = JSON.parse(localStorage.getItem("storedPagesArray") || []);
     let initalTabTarget = pagesTable;
     //populates  Users table and counters por posts and pages respectively
-    setPagesTable(initalTabTarget,totalPagesArray);
+    setPagesTable(initalTabTarget, totalPagesArray);
     setTotalUsersCounter();
     setTotalPostsCounter();
     setTotalPagesCounter();
 }
 
-function setPagesTable(tab,array){
+function setPagesTable(tab, array) {
     let tabTarget = tab;
     let pageTitle = '';
     let pagePublished = '';
@@ -227,13 +228,13 @@ function setPagesTable(tab,array){
         pagePublished = item.published;
         pageCreated = item.created;
         stringPageIndexOf = pageIndexOf.toString();
-        createTableRow(tabTarget,pageTitle,pagePublished,pageCreated, stringPageIndexOf);
+        createTableRow(tabTarget, pageTitle, pagePublished, pageCreated, stringPageIndexOf);
         //keeps tabs of the id counters
         pageIndexOf++;
     }
 }
 
-function addNewUser(){
+function addNewUser() {
     //assigns the array to work with
     let localStorageUsersArray = JSON.parse(localStorage.getItem("storedUsersArray") || []);
     //creates new user object out of values inserted by new user modal
@@ -252,7 +253,7 @@ function addNewUser(){
     localStorage.setItem("storedUsersArray", JSON.stringify(localStorageUsersArray));
 }
 
-function addNewPost(){
+function addNewPost() {
     //assigns the array to work with
     let localStoragePostsArray = JSON.parse(localStorage.getItem("storedPostsArray") || []);
     //creates new user object out of values inserted by new user modal
@@ -269,18 +270,18 @@ function addNewPost(){
     localStorage.setItem("storedPostsArray", JSON.stringify(localStoragePostsArray));
 }
 
-function addNewPage(){
+function addNewPage() {
     //assigns the array to work with
     let localStoragePagesArray = JSON.parse(localStorage.getItem("storedPagesArray") || []);
-    let status  = newPagePublished.checked || false;
+    let status = newPagePublished.checked || false;
     //creates new user object out of values inserted by new user modal
     let newPaTitle = newPageTitle.value;
     let newPaBody = newPageBody.value;
     let newPaCreationDate = getFullCurrentDate();
     let newPaPub = '';
-    if(status == true){
+    if (status == true) {
         newPaPub = true;
-    }else{
+    } else {
         newPaPub = false;
     }
     let newPaMeTag = newPageMetaTags.value;
@@ -298,6 +299,6 @@ function addNewPage(){
     localStorage.setItem("storedPagesArray", JSON.stringify(localStoragePagesArray));
 }
 
-function clearAllStorage(){
+function clearAllStorage() {
     localStorage.clear();
 }

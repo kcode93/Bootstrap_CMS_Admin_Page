@@ -1,5 +1,6 @@
 [
     {
+        "id": "0",
         "title": "index.html",
         "body": "<html><head><titl></title></head><body></body></html>",
         "metaTags": [
@@ -14,6 +15,7 @@
 
     },
     {
+        "id": "1",
         "title": "dashboard.html",
         "body": "<html><head><titl></title></head><body></body></html>",
         "metaTags": [
@@ -28,6 +30,7 @@
 
     },
     {
+        "id": "2",
         "title": "users.html",
         "body": "<html><head><titl></title></head><body></body></html>",
         "metaTags": [
@@ -42,6 +45,7 @@
 
     },
     {
+        "id": "3",
         "title": "pages.html",
         "body": "<html><head><titl></title></head><body></body></html>",
         "metaTags": [
@@ -56,6 +60,7 @@
 
     },
     {
+        "id": "4",
         "title": "posts.html",
         "body": "<html><head><titl></title></head><body></body></html>",
         "metaTags": [
