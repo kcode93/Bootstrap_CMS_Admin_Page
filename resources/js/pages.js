@@ -54,6 +54,12 @@ function setPublishedAwesomeIcon(value){
     }
 }
 
+function getTargetEditID(){
+    let curBtnId = this.getAttribute('id');
+    let target = `#${curBtnId.toString()}`;
+    let targetRow = document.querySelector(target);
+}
+
 function createTableRow(tab,a,b,c,d){
     //targets table and adds a new row with the needed values
     const table = tab;
@@ -81,10 +87,7 @@ function createTableRow(tab,a,b,c,d){
     localDelBtn = document.querySelector('.deleteBtn');
     localDelBtn.setAttribute('id', d);
     //adds a click event listener to the edit button
-    localEditBtn.addEventListener('click',(d) => {
-        //saves the id of the clicked button
-        localStorage.setItem('editTargetID', d);
-    });
+    localEditBtn.addEventListener('click', getTargetEditID);
     //adds a click event listener to the delete button
     localDelBtn.addEventListener('click',(d) => {
         //deletes the page from table
@@ -93,8 +96,6 @@ function createTableRow(tab,a,b,c,d){
         //table.deleteRow(d);
         //localStorage.setItem('editTargetID', d);
     });
-
-
 }
 
 function getStringDate(date){
