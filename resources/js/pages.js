@@ -89,16 +89,27 @@ function getTargetEditID() {
 }
 
 function createTableRow(tab, a, b, c, d) {
-    //targets table and adds a new row with the needed values
-    const table = tab;
-    const rowID = 'row';
-    const btnID = 'P';
-    let dynamicID = btnID + d.toString();
-    let dynIDStr = dynamicID.toString();
-    let mobileEditButton = MOBILEEDITBTN;
-    let mobileDeleteButton = MOBILEDELETEBTN;
+    //retrieves the array of pages stored in local storage and gets the necessary buttons
+    let lstPagesArray = JSON.parse(localStorage.getItem("storedPagesArray") || []);
     let localEditBtn;
     let localDelBtn;
+    let locEdButt;
+    let locDelButt;
+    let targetEditBtn;
+    let targetDelBtn;
+    //assigns the respective buttons according to the id 
+    for (let page of lstPagesArray) {
+        if(page.id == d){
+            localEditBtn = page.editButton;
+            targetEditBtn = `#pe${d.toString()}`;
+            localDelBtn = page.deleteButton;
+            targetDelBtn = `#pd${d.toString()}`;
+        }
+    }
+    //targets table and adds a new row with the needed values
+    const table = tab;
+    const rowID = 'rowP';
+    let dynamicID = d.toString();
     let row = table.insertRow(-1);
     row.setAttribute('id', rowID + dynamicID);
     let cell1 = row.insertCell(0);
@@ -112,14 +123,12 @@ function createTableRow(tab, a, b, c, d) {
     cell1.innerHTML = a;
     cell2.innerHTML = setPublishedAwesomeIcon(b);
     cell3.innerHTML = c;
-    cell4.innerHTML = `${mobileEditButton} ${mobileDeleteButton}`;
+    cell4.innerHTML = `${localEditBtn} ${localDelBtn}`;
     //targets the new added buttons and adds a respective id number
-    localEditBtn = document.querySelector('#pe');
-    localDelBtn = document.querySelector('#pd');
-    localEditBtn.id = 'sho';
-    localDelBtn.id = 'shoputa';
-    localEditBtn.addEventListener('click', getTargetEditID);
-    localDelBtn.addEventListener('click', deletePageRow(d));
+    locEdButt = document.querySelector(targetEditBtn);
+    locDelButt = document.querySelector(targetDelBtn);
+    //locEdButt.addEventListener('click', getTargetEditID);
+    //locDelButt.addEventListener('click', deletePageRow(d));
 }
 
 function getStringDate(date) {
