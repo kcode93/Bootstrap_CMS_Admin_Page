@@ -78,16 +78,6 @@ function deletePageRow(targetID){
     localStorage.setItem("storedPagesArray", JSON.stringify(localStoragePagesArray));    
 }
 
-function getTargetEditID() {
-    //gets the id of the clicked button and ensures its in string format
-    let curBtnID = this.getAttribute('id');
-    let curBtnIDStr = curBtnID.toString();
-    //makes a subtring of the id string containing only the string number and makes a numeric format again
-    let spliceNum = curBtnIDStr.substring(1,1);
-    let spliceNumNur = parseInt(spliceNum, 10);
-    localStorage.setItem("targetToEdit", spliceNumNur);
-}
-
 function createTableRow(tab, a, b, c, d) {
     //retrieves the array of pages stored in local storage and gets the necessary buttons
     let lstPagesArray = JSON.parse(localStorage.getItem("storedPagesArray") || []);
@@ -126,9 +116,20 @@ function createTableRow(tab, a, b, c, d) {
     cell4.innerHTML = `${localEditBtn} ${localDelBtn}`;
     //targets the new added buttons and adds a respective id number
     locEdButt = document.querySelector(targetEditBtn);
+    locEdButt.addEventListener('click', function(){
+        //gets the id of the clicked button and ensures its in string format
+        let test = '';
+        let curBtnID = locEdButt.getAttribute('id');
+        let curBtnIDStr = curBtnID.toString();
+        //makes a subtring of the id string containing only the string number and makes a numeric format again
+        let spliceNum = curBtnIDStr.substring(2);
+        let spliceNumNur = parseInt(spliceNum, 10);
+        localStorage.setItem("targetToEdit", spliceNumNur);
+    });
     locDelButt = document.querySelector(targetDelBtn);
-    //locEdButt.addEventListener('click', getTargetEditID);
-    //locDelButt.addEventListener('click', deletePageRow(d));
+    locDelButt.addEventListener('click', function(){
+        alert('shoPuta');
+    });
 }
 
 function getStringDate(date) {
