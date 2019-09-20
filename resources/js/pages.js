@@ -54,8 +54,30 @@ function setPublishedAwesomeIcon(value) {
     }
 }
 
-function deletePageRow(){
-
+function deletePageRow(targetID){
+    //sets the necessary values to use and pulls the array of page objects from the local storage.
+    let tID = targetID;
+    let localStoragePagesArray = JSON.parse(localStorage.getItem("storedPagesArray") || []);
+    let indexOfPageToDel;
+    const lcRowID = 'row';
+    const lcPID = 'P';
+    const lcDynamicID = targetID.toString();
+    //constructs the new row target Id and selects if from the DOM
+    let targetRowID = `#${lcRowID}${lcPID}${lcDynamicID}`;
+    let targetRow = document.querySelector(targetRowID.toString());
+    //removes the targeted row form the table
+    targetRow.parentNode.removeChild(targetRow);
+    //loops through the array fo pages to find the index of the page object to delete
+    for (let page of localStoragePagesArray){
+        if(page.id == tID){
+            indexOfPageToDel = page.id;
+        }
+    }
+    //deletes the object from the array and saves new array in local storage
+    if (indexOfPageToDel > -1) {
+        localStoragePagesArray.splice(indexOfPageToDel, 1);
+    }
+    localStorage.setItem("storedPagesArray", JSON.stringify(localStoragePagesArray));    
 }
 
 function getTargetEditID() {
@@ -98,6 +120,7 @@ function createTableRow(tab, a, b, c, d) {
     localEditBtn.id = btnID + dynamicID;
     localDelBtn.id = btnID + dynamicID;
     localEditBtn.addEventListener('click', getTargetEditID);
+    localDelBtn.addEventListener('click', deletePageRow(d));
 }
 
 function getStringDate(date) {
