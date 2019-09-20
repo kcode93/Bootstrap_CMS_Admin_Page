@@ -11,7 +11,9 @@
         ],
         "metaDescription": "Bootstrap, CMS Admin Site",
         "published": true,
-        "created": "Aug 10 2019"
+        "created": "Aug 10 2019",
+        "editButton": "<a id='pe0' class='btn bg-primary-color mx-2 editBtn' href='editPage.html'><i class='fas fa-pencil-alt'></i></a>",
+        "deleteButton": "<a id='pd0' href='#' class='btn bg-secondary-color mx-2 deleteBtn'><i class='fas fa-trash-alt'></i></a>"
 
     },
     {
@@ -26,7 +28,9 @@
         ],
         "metaDescription": "Bootstrap, CMS Admin Site",
         "published": true,
-        "created": "Jun 11 2019"
+        "created": "Jun 11 2019",
+        "editButton": "<a id='pe1' class='btn bg-primary-color mx-2 editBtn' href='editPage.html'><i class='fas fa-pencil-alt'></i></a>",
+        "deleteButton": "<a id='pd1' href='#' class='btn bg-secondary-color mx-2 deleteBtn'><i class='fas fa-trash-alt'></i></a>"
 
     },
     {
@@ -41,7 +45,9 @@
         ],
         "metaDescription": "Bootstrap, CMS Admin Site",
         "published": true,
-        "created": "Apr 22 2019"
+        "created": "Apr 22 2019",
+        "editButton": "<a id='pe2' class='btn bg-primary-color mx-2 editBtn' href='editPage.html'><i class='fas fa-pencil-alt'></i></a>",
+        "deleteButton": "<a id='pd2' href='#' class='btn bg-secondary-color mx-2 deleteBtn'><i class='fas fa-trash-alt'></i></a>"
 
     },
     {
@@ -56,7 +62,9 @@
         ],
         "metaDescription": "Bootstrap, CMS Admin Site",
         "published": true,
-        "created": "Jun 7 2019"
+        "created": "Jun 7 2019",
+        "editButton": "<a id='pe3' class='btn bg-primary-color mx-2 editBtn' href='editPage.html'><i class='fas fa-pencil-alt'></i></a>",
+        "deleteButton": "<a id='pd3' href='#' class='btn bg-secondary-color mx-2 deleteBtn'><i class='fas fa-trash-alt'></i></a>"
 
     },
     {
@@ -71,7 +79,9 @@
         ],
         "metaDescription": "Bootstrap, CMS Admin Site",
         "published": true,
-        "created": "Feb 14 2019"
+        "created": "Feb 14 2019",
+        "editButton": "<a id='pe4' class='btn bg-primary-color mx-2 editBtn' href='editPage.html'><i class='fas fa-pencil-alt'></i></a>",
+        "deleteButton": "<a id='pd4' href='#' class='btn bg-secondary-color mx-2 deleteBtn'><i class='fas fa-trash-alt'></i></a>"
 
     }
 ]
