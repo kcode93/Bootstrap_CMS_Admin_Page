@@ -54,18 +54,26 @@ function setPublishedAwesomeIcon(value) {
     }
 }
 
+function deletePageRow(){
+
+}
+
 function getTargetEditID() {
-    let curBtnId = this.getAttribute('id');
-    let target = `#${curBtnId.toString()}`;
-    let targetRow = document.querySelector(target);
+    //gets the id of the clicked button and ensures its in string format
+    let curBtnID = this.getAttribute('id');
+    let curBtnIDStr = curBtnID.toString();
+    //makes a subtring of the id string containing only the string number and makes a numeric format again
+    let spliceNum = curBtnIDStr.substring(1,1);
+    let spliceNumNur = parseInt(spliceNum, 10);
+    localStorage.setItem("targetToEdit", spliceNumNur);
 }
 
 function createTableRow(tab, a, b, c, d) {
     //targets table and adds a new row with the needed values
     const table = tab;
-    let rowID = 'prow';
-    let btnID = 'p';
-    let dynamicID = d.toString();
+    const rowID = 'row';
+    const btnID = 'P';
+    let dynamicID = btnID + d.toString();
     let mobileEditButton = MOBILEEDITBTN;
     let mobileDeleteButton = MOBILEDELETEBTN;
     let localEditBtn;
@@ -89,7 +97,7 @@ function createTableRow(tab, a, b, c, d) {
     localDelBtn = document.querySelector('#pd');
     localEditBtn.id = btnID + dynamicID;
     localDelBtn.id = btnID + dynamicID;
-
+    localEditBtn.addEventListener('click', getTargetEditID);
 }
 
 function getStringDate(date) {
