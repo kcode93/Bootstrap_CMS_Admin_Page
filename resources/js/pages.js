@@ -1,8 +1,6 @@
 //Variables
 const AWESOMEICONCHECK = '<i class="fas fa-check"></i>';
 const AWESOMEICONX = '<i class="fas fa-times"></i>';
-const MOBILEEDITBTN = '<a id="p" class="btn bg-primary-color mx-2 editBtn" href="editPage.html"><i class="fas fa-pencil-alt"></i></a>';
-const MOBILEDELETEBTN = '<a id="pa" href="#" class="btn bg-secondary-color mx-2 deleteBtn"><i class="fas fa-trash-alt"></i></a>';
 
 //Selections
 const targetUserName = document.querySelector('#loggedUser');
