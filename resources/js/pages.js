@@ -96,6 +96,7 @@ function createTableRow(tab, a, b, c, d) {
     const rowID = 'row';
     const btnID = 'P';
     let dynamicID = btnID + d.toString();
+    let dynIDStr = dynamicID.toString();
     let mobileEditButton = MOBILEEDITBTN;
     let mobileDeleteButton = MOBILEDELETEBTN;
     let localEditBtn;
@@ -117,8 +118,8 @@ function createTableRow(tab, a, b, c, d) {
     //targets the new added buttons and adds a respective id number
     localEditBtn = document.querySelector('#pe');
     localDelBtn = document.querySelector('#pd');
-    localEditBtn.id = btnID + dynamicID;
-    localDelBtn.id = btnID + dynamicID;
+    localEditBtn.id = 'sho';
+    localDelBtn.id = 'shoputa';
     localEditBtn.addEventListener('click', getTargetEditID);
     localDelBtn.addEventListener('click', deletePageRow(d));
 }
@@ -312,6 +313,8 @@ function addNewPage() {
     let newPaBody = newPageBody.value;
     let newPaCreationDate = getFullCurrentDate();
     let currID = localStoragePagesArray.length - 1;
+    let editBtn = `<a id="pe${currID + 1}" class="btn bg-primary-color mx-2 editBtn" href="editPage.html"><i class="fas fa-pencil-alt"></i></a>`;
+    let delBtn = `<a id="pd${currID + 1}" href="#" class="btn bg-secondary-color mx-2 deleteBtn"><i class="fas fa-trash-alt"></i></a>`;
     let newPaPub = '';
     if (status == true) {
         newPaPub = true;
@@ -327,7 +330,9 @@ function addNewPage() {
         "published": newPaPub,
         "metaTags": newPaMeTag,
         "metaDescription": newPaMeDes,
-        "created": newPaCreationDate
+        "created": newPaCreationDate,
+        "editButton": editBtn,
+        "deleteButton": delBtn
     }
     //stores new object in local storage array
     localStoragePagesArray.push(newPageEntry);
