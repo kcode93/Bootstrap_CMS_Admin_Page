@@ -46,8 +46,10 @@ function setUserName() {
 
 function setPublishedAwesomeIcon(value) {
     if (value == true) {
+        //returns CHECK awesome icon if page was published
         return AWESOMEICONCHECK;
     } else {
+        //returns X awesome icon if page was not published
         return AWESOMEICONX;
     }
 }
@@ -249,14 +251,14 @@ function setPagesTable(tab, array) {
     let pagePublished = '';
     let pageCreated = '';
     let pageIndexOf = 0;
-    let stringPageIndexOf = '';
+    //let stringPageIndexOf = '';
     //get pages from totalPagesArray and populate pages table
     for (let item of array) {
         pageTitle = item.title;
         pagePublished = item.published;
         pageCreated = item.created;
-        stringPageIndexOf = pageIndexOf.toString();
-        createTableRow(tabTarget, pageTitle, pagePublished, pageCreated, stringPageIndexOf);
+        //stringPageIndexOf = pageIndexOf.toString();
+        createTableRow(tabTarget, pageTitle, pagePublished, pageCreated, pageIndexOf);
         //keeps tabs of the id counters
         pageIndexOf++;
     }
