@@ -118,7 +118,6 @@ function createTableRow(tab, a, b, c, d) {
     locEdButt = document.querySelector(targetEditBtn);
     locEdButt.addEventListener('click', function(){
         //gets the id of the clicked button and ensures its in string format
-        let test = '';
         let curBtnID = locEdButt.getAttribute('id');
         let curBtnIDStr = curBtnID.toString();
         //makes a subtring of the id string containing only the string number and makes a numeric format again
@@ -128,7 +127,20 @@ function createTableRow(tab, a, b, c, d) {
     });
     locDelButt = document.querySelector(targetDelBtn);
     locDelButt.addEventListener('click', function(){
-        alert('shoPuta');
+        //pulls local storage array of pages to edit locally and assigns id of row to delete
+        let locStrPagesArray = JSON.parse(localStorage.getItem("storedPagesArray") || []);
+        let targetRowID = `#rowP${d}`;
+        //removes the row form the pages table and deltes the page object of the array of pages
+        $(targetRowID).remove();
+        locStrPagesArray.splice(d,1);
+        //reassigns the id of the page objects and to each one of their buttons to ensure consistency
+        for(let i = 0; i < locStrPagesArray.length; i++){
+            locStrPagesArray[i].id = i;
+            locStrPagesArray[i].editButton = `<a id='pe${i}' class='btn bg-primary-color mx-2 editBtn' href='editPage.html'><i class='fas fa-pencil-alt'></i></a>`;
+            locStrPagesArray[i].deleteButton =`<a id='pd${i}' href='#' class='btn bg-secondary-color mx-2 deleteBtn'><i class='fas fa-trash-alt'></i></a>`
+        }
+        //saves new array of pages to local storage
+        localStorage.setItem("storedPagesArray", JSON.stringify(locStrPagesArray));
     });
 }
 
