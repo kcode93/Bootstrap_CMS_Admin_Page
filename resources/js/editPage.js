@@ -9,6 +9,7 @@ const pageBody = document.querySelector('#pageBody');
 const pagePublished = document.querySelector('#pagePublished');
 const pageTags = document.querySelector('#pageTags');
 const pageDescriptions = document.querySelector('#pageDes');
+const updatePageData = document.querySelector('#updatePageData');
 
 //Events
 document.addEventListener('DOMContentLoaded', onLoad);
