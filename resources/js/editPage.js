@@ -28,13 +28,13 @@ function setUserName() {
     setInitialValues();
 }
 
-function setPublishedAwesomeIcon(value) {
+function setPublishedStatus(value) {
     if (value == true) {
         //returns CHECK awesome icon if page was published
-        return AWESOMEICONCHECK;
+        return true;
     } else {
         //returns X awesome icon if page was not published
-        return AWESOMEICONX;
+        return false;
     }
 }
 
@@ -61,7 +61,17 @@ function setTotalPagesCounter() {
 }
 
 function pullTargetPageData(){
-    
+    let targetPage = localStorage.getItem('targetToEdit');
+    let localTotalPagesArray = JSON.parse(localStorage.getItem("storedPagesArray") || []);
+    for (let page of localTotalPagesArray){
+        if(page.id == targetPage){
+            pageTitle.value = page.title;
+            pageBody.value = page.body;
+            pagePublished.checked = setPublishedStatus(page.published);
+            pageTags.value = page.metaTags;
+            pageDescriptions = page.metaDescription;
+        }
+    }
 }
 
 function setInitialValues() {
