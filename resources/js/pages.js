@@ -115,8 +115,9 @@ function createTableRow(tab, a, b, c, d) {
             locStrPagesArray[i].editButton = `<a id='pe${i}' class='btn bg-primary-color mx-2 editBtn' href='editPage.html'><i class='fas fa-pencil-alt'></i></a>`;
             locStrPagesArray[i].deleteButton =`<a id='pd${i}' href='#' class='btn bg-secondary-color mx-2 deleteBtn'><i class='fas fa-trash-alt'></i></a>`
         }
-        //saves new array of pages to local storage
+        //saves new array of pages to local storage and refreshes
         localStorage.setItem("storedPagesArray", JSON.stringify(locStrPagesArray));
+        setTotalPagesCounter();
     });
 }
 
