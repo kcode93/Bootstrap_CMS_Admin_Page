@@ -22,6 +22,7 @@ const newPagePublished = document.querySelector('#newPagePublished');
 const newPageMetaTags = document.querySelector('#newPageMetaTags');
 const newPageMetaDescription = document.querySelector('#newPageMetaDescription');
 const logOut = document.querySelector('#logOut');
+const tableMessageRow = document.querySelector('#tableMsg');
 
 //Events
 document.addEventListener('DOMContentLoaded', onLoad);
