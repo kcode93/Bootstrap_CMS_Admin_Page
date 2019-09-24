@@ -60,6 +60,10 @@ function setTotalPagesCounter() {
     asidePagesCounter.innerHTML = totalSitePages;
 }
 
+function pullTargetPageData(){
+    
+}
+
 function setInitialValues() {
     //pull local sotorage array of users
     setTotalUsersCounter();
