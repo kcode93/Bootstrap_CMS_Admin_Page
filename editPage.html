@@ -58,22 +58,9 @@
         <header id="header">
             <div class="container">
                 <div class="row">
-                    <div id="header-title" class="col-md-10">
-                        <h1><i class="fas fa-pencil-alt"></i> Edit <small>Home</small></h1>
+                    <div id="header-title" class="col-md-12">
+                        <h1><i class="fas fa-pencil-alt"></i> Edit <small>Page</small></h1>
                     </div><!--end of col-md-10-->
-
-                    <div class="col-md-2">
-                        <div class="dropdown">
-                            <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Add Content
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                <a type="button" class="dropdown-item" data-toggle="modal" data-target="#addPage"><i class="fas fa-plus-circle"></i>&nbsp;&nbsp;Add Page</a>
-                                <a type="button" class="dropdown-item" data-toggle="modal" data-target="#addPost"><i class="fas fa-plus-circle"></i>&nbsp;&nbsp;Add Post</a>
-                                <a type="button" class="dropdown-item" data-toggle="modal" data-target="#addUser" ><i class="fas fa-plus-circle"></i>&nbsp;&nbsp;Add User</a>
-                            </div>
-                        </div><!--end of dropdow-->
-                    </div><!--end of col-md-2-->
                 </div><!--end of row-->
             </div><!--end of container-->
         </header><!--end of header-->
@@ -95,13 +82,13 @@
                                 <i class="fas fa-chalkboard-teacher"></i> <span class="bold">Dashboard</span>
                             </a>
                             <a href="pages.html" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
-                                <i class="far fa-file-alt"><span class="bold"> Pages</span></i><span class="badge numbers">10</span>
+                                <i class="far fa-file-alt"><span class="bold"> Pages</span></i><span id="asidePagesCounter" class="badge numbers"></span>
                             </a>
                             <a href="posts.html" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
-                                <i class="far fa-comment-alt"><span class="bold"> Posts</span></i><span class="badge numbers">35</span>
+                                <i class="far fa-comment-alt"><span class="bold"> Posts</span></i><span id="asidePostsCounter" class="badge numbers"></span>
                             </a>
                             <a href="users.html" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
-                                <i class="far fa-user"><span class="bold"> Users</span></i><span class="badge numbers">95</span>
+                                <i class="far fa-user"><span class="bold"> Users</span></i><span id="asideUserCounter" class="badge numbers"></span>
                             </a>
                         </div><!--end of list-group-->
                         <div class="well">
