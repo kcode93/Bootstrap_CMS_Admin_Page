@@ -204,9 +204,13 @@ footer{
     margin-bottom: 1rem;
 }
 
-#postsTable tbody .hid{
+#pagessTable .hide{
     display: none;
 } 
+
+#pagesTable .show{
+    display: inline-block;
+}
 
 /*************************** posts.html Main ****************************************/
 table tbody #eye{
