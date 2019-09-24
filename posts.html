@@ -187,7 +187,7 @@
                 <div class="modal-content">
                     <form>
                         <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Add a New Page</h5>
+                            <h5 class="modal-title" id="addPageModal">Add a New Page</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
@@ -195,27 +195,27 @@
                         <div class="modal-body">
                             <div class="form-group">
                                 <label>Page Title</label>
-                                <input type="text" class="form-control numbers" placeholder="Page Title">
+                                <input id="newPageTitle" type="text" class="form-control numbers" placeholder="Page Title">
                             </div><!--end of form-group-->
                             <div class="form-group">
                                 <label>Page Body</label>
-                                <textarea class="form-control numbers" name="editor1" placeholder="Page Body"></textarea>
+                                <textarea id="newPageBody" class="form-control numbers" name="editor1" placeholder="Page Body"></textarea>
                             </div><!--end of form-group-->
                             <div class="checkbox">
-                                <label><input type="checkbox"> Published</label>
+                                <label><input id="newPagePublished" type="checkbox"> Publish</label>
                             </div><!--end of checkbox-->
                             <div class="form-group">
                                 <label>Meta Tags</label>
-                                <input type="text" class="form-control numbers" placeholder="Add some Tags...">
+                                <input id="newPageMetaTags" type="text" class="form-control numbers" placeholder="Add some Tags...">
                             </div><!--end of form-control-->
                             <div class="form-group">
                                 <label>Meta Description</label>
-                                <input type="text" class="form-control numbers" placeholder="Add Meta Description...">
+                                <input id="newPageMetaDescription" type="text" class="form-control numbers" placeholder="Add Meta Description...">
                             </div><!--end of form-control-->
                         </div><!--end of modal-body-->
                         <div class="modal-footer">
                             <button type="button" class="btn bg-secondary-color" data-dismiss="modal">Close</button>
-                            <button type="submit" class="btn bg-primary-color">Save changes</button>
+                            <button id="addNewPage" type="submit" class="btn bg-primary-color">Add Page</button>
                         </div><!--end of modal-footer-->
                     </form><!--end of form-->
                 </div><!--end of modal-content-->
@@ -224,94 +224,67 @@
 
         <!-- Add Post Modal -->
         <div class="modal fade" id="addPost" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <form>
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Add a New Post</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div><!--end of modal-header-->
-                            <div class="modal-body">
-                                <div class="form-group">
-                                    <label>Post Title</label>
-                                    <input type="text" class="form-control numbers" placeholder="Page Title">
-                                </div><!--end of form-group-->
-                                <div class="form-group">
-                                    <textarea class="form-control" name="editor1" placeholder="Page Body"></textarea>
-                                </div><!--end of form-group-->
-                            </div><!--end of modal-body-->
-                            <div class="modal-footer">
-                                <button type="button" class="btn bg-secondary-color" data-dismiss="modal">Close</button>
-                                <button type="submit" class="btn bg-primary-color">Add Post</button>
-                            </div><!--end of modal-footer-->
-                        </form><!--end of form-->
-                    </div><!--end of modal-content-->
-                </div><!--end of modal-dialog-->
-            </div><!--end of modal-->
-
-        <!-- Add User Modal -->
-        <div class="modal fade" id="addUser" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <form>
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Add a New User</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div><!--end of modal-header-->
-                            <div class="modal-body">
-                                <div class="form-group">
-                                    <label>Name</label>
-                                    <input type="text" class="form-control numbers" placeholder="enter name" required>
-                                </div><!--end of form-group-->
-                                <div class="form-group">
-                                    <label>Username</label>
-                                    <input type="text" class="form-control numbers" placeholder="enter Last Name" required>
-                                </div><!--end of form-group-->
-                                <div class="form-group">
-                                    <label>Email</label>
-                                    <input type="text" class="form-control numbers" placeholder="enter email" required>
-                                </div><!--end of form-control-->
-                            </div><!--end of modal-body-->
-                            <div class="modal-footer">
-                                <button type="button" class="btn bg-secondary-color" data-dismiss="modal">Close</button>
-                                <button type="submit" class="btn bg-primary-color">Add User</button>
-                            </div><!--end of modal-footer-->
-                        </form><!--end of form-->
-                    </div><!--end of modal-content-->
-                </div><!--end of modal-dialog-->
-            </div><!--end of modal-->
-
-        <!-- Show Post Modal -->
-        <div class="modal fade" id="showPost" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <form>
                         <div class="modal-header">
-                            <h5 class="modal-title bold" id="exampleModalLabel">Life is Good</h5>
+                            <h5 class="modal-title" id="addPostModal">Add a New Post</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div><!--end of modal-header-->
                         <div class="modal-body">
                             <div class="form-group">
-                                <label id="postContent">Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                                Quaerat quasi quisquam voluptas consectetur esse, dolorem nobis voluptate, rem quidem
-                                praesentium sit cumque soluta consequatur totam impedit amet delectus iste nisi.</label>
+                                <label>Post Title</label>
+                                <input id="newPostTitle" type="text" class="form-control numbers" placeholder="Add Post Title...">
+                            </div><!--end of form-group-->
+                            <div class="form-group">
+                                <label>Post Body</label>
+                                <textarea id="newPostBody" class="form-control numbers" name="editor1" placeholder="Post Body"></textarea>
                             </div><!--end of form-group-->
                         </div><!--end of modal-body-->
                         <div class="modal-footer">
                             <button type="button" class="btn bg-secondary-color" data-dismiss="modal">Close</button>
+                            <button id="addNewPost" type="submit" class="btn bg-primary-color">Add Post</button>
                         </div><!--end of modal-footer-->
                     </form><!--end of form-->
                 </div><!--end of modal-content-->
             </div><!--end of modal-dialog-->
         </div><!--end of modal-->
 
-
+        <!-- Add User Modal -->
+        <div class="modal fade" id="addUser" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <form>
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="addUserModal">Add a New User</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div><!--end of modal-header-->
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <label>Name</label>
+                                <input id="newUserName" type="text" class="form-control numbers" placeholder="enter name" required>
+                            </div><!--end of form-group-->
+                            <div class="form-group">
+                                <label>Username</label>
+                                <input id="newUserUsername" type="text" class="form-control numbers" placeholder="enter Username" required>
+                            </div><!--end of form-group-->
+                            <div class="form-group">
+                                <label>Email</label>
+                                <input id="newUserEmail" type="text" class="form-control numbers" placeholder="enter email" required>
+                            </div><!--end of form-control-->
+                        </div><!--end of modal-body-->
+                        <div class="modal-footer">
+                            <button type="button" class="btn bg-secondary-color" data-dismiss="modal">Close</button>
+                            <button id="addNewUser" type="submit" class="btn bg-primary-color">Add User</button>
+                        </div><!--end of modal-footer-->
+                    </form><!--end of form-->
+                </div><!--end of modal-content-->
+            </div><!--end of modal-dialog-->
+        </div><!--end of modal-->
 
         <!--JQuery CDN-->
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" 
