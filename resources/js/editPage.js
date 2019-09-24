@@ -59,3 +59,14 @@ function setTotalPagesCounter() {
     //displays the total number of pages in the site.
     asidePagesCounter.innerHTML = totalSitePages;
 }
+
+function setInitialValues() {
+    //pull local sotorage array of users
+    setTotalUsersCounter();
+    setTotalPostsCounter();
+    setTotalPagesCounter();
+}
+
+function clearAllStorage() {
+    localStorage.clear();
+}
