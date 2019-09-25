@@ -32,15 +32,16 @@ function setUserName() {
 
 function setPublishedStatus(value) {
     if (value == true) {
-        //returns CHECK awesome icon if page was published
+        //returns a CHECKED checkbox if page was published
         return true;
     } else {
-        //returns X awesome icon if page was not published
+        //returns a UNCHECKED checkbox if page was not published
         return false;
     }
 }
 
 function setTotalUsersCounter() {
+    //pulls the local storage array fo Users and determines the # of stored users
     let localTotalUsersArray = JSON.parse(localStorage.getItem("storedUsersArray") || []);
     let totalSiteUsers = localTotalUsersArray.length;
     //displays the total number of users in the site.
@@ -48,6 +49,7 @@ function setTotalUsersCounter() {
 }
 
 function setTotalPostsCounter() {
+    //pulls the local storage array fo Posts and determines the # of stored users
     let localTotalPostsArray = JSON.parse(localStorage.getItem("storedPostsArray") || []);
     let totalSitePosts = localTotalPostsArray.length;
     //displays the total number of posts in the site.
@@ -56,6 +58,7 @@ function setTotalPostsCounter() {
 }
 
 function setTotalPagesCounter() {
+    //pulls the local storage array fo Pages and determines the # of stored users
     let localTotalPagesArray = JSON.parse(localStorage.getItem("storedPagesArray") || []);
     let totalSitePages = localTotalPagesArray.length;
     //displays the total number of pages in the site.
@@ -63,8 +66,10 @@ function setTotalPagesCounter() {
 }
 
 function pullTargetPageData(){
+    //pulls the target page ID from local storage and pulls the total pages local storage array
     let targetPage = localStorage.getItem('targetToEdit');
     let localTotalPagesArray = JSON.parse(localStorage.getItem("storedPagesArray") || []);
+    //loops thru array of apges and displays data by pulling it form the target page only
     for (let page of localTotalPagesArray){
         if(page.id == targetPage){
             pageTitle.value = page.title;
@@ -77,7 +82,7 @@ function pullTargetPageData(){
 }
 
 function setInitialValues() {
-    //pull local sotorage array of users
+    //sets the initial counters for all the users, pages and posts
     setTotalUsersCounter();
     setTotalPostsCounter();
     setTotalPagesCounter();
@@ -88,5 +93,6 @@ function updatePageData(){
 }
 
 function clearAllStorage() {
+    //deltes all the saved data
     localStorage.clear();
 }
