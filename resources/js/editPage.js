@@ -14,6 +14,7 @@ const updatePageData = document.querySelector('#updatePageData');
 //Events
 document.addEventListener('DOMContentLoaded', onLoad);
 logOut.addEventListener('click', clearAllStorage);
+updatePageData.addEventListener('click', updatePageData);
 
 //Functions
 function onLoad() {
@@ -80,6 +81,10 @@ function setInitialValues() {
     setTotalUsersCounter();
     setTotalPostsCounter();
     setTotalPagesCounter();
+}
+
+function updatePageData(){
+    alert('sho');
 }
 
 function clearAllStorage() {
