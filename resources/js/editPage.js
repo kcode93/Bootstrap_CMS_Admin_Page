@@ -9,17 +9,17 @@ const pageBody = document.querySelector('#pageBody');
 const pagePublished = document.querySelector('#pagePublished');
 const pageTags = document.querySelector('#pageTags');
 const pageDescriptions = document.querySelector('#pageDes');
-const updatePageData = document.querySelector('#updatePageData');
+const saveChangesBtn = document.querySelector('#updatePageData');
 
 //Events
 document.addEventListener('DOMContentLoaded', onLoad);
 logOut.addEventListener('click', clearAllStorage);
-updatePageData.addEventListener('click', updatePageData);
+saveChangesBtn.addEventListener('click', updatePageData);
 
 //Functions
 function onLoad() {
     //implements CKEditor
-    CKEDITOR.replace('editor1');
+    //CKEDITOR.replace('editor1');
     setUserName();
 }
 
@@ -76,7 +76,7 @@ function pullTargetPageData(){
             pageBody.value = page.body;
             pagePublished.checked = setPublishedStatus(page.published);
             pageTags.value = page.metaTags;
-            pageDescriptions = page.metaDescription;
+            pageDescriptions.value = page.metaDescription;
         }
     }
 }
@@ -86,10 +86,11 @@ function setInitialValues() {
     setTotalUsersCounter();
     setTotalPostsCounter();
     setTotalPagesCounter();
+    pullTargetPageData();
 }
 
 function updatePageData(){
-    alert('sho');
+    
 }
 
 function clearAllStorage() {
