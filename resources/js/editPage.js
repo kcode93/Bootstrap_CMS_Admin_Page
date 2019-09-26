@@ -109,8 +109,9 @@ function updatePageData(){
             page.metaDescription = pageDescriptions.value;
         }
     }
-    //saves new updated page array into local storage
+    //saves new updated page array into local storage & deletes the storage
     localStorage.setItem("storedPagesArray", JSON.stringify(localTotalPagesArray));
+    localStorage.removeItem('targetToEdit');
     
 }
 
