@@ -111,6 +111,9 @@ function updatePageData(){
             page.metaDescription = pageDescriptions.value;
         }
     }
+    //saves new updated page array into local storage
+    localStorage.setItem("storedPagesArray", JSON.stringify(localTotalPagesArray));
+    
 }
 
 function clearAllStorage() {
