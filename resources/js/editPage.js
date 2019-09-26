@@ -40,6 +40,14 @@ function setPublishedStatus(value) {
     }
 }
 
+function checkForCheckBoxValue(element){
+    if(element.checked == true){
+        return true
+    }else{
+        return false;
+    }
+}
+
 function setTotalUsersCounter() {
     //pulls the local storage array fo Users and determines the # of stored users
     let localTotalUsersArray = JSON.parse(localStorage.getItem("storedUsersArray") || []);
@@ -90,7 +98,19 @@ function setInitialValues() {
 }
 
 function updatePageData(){
-    
+    //pulls the target page ID from local storage and pulls the total pages local storage array
+    let targetPage = localStorage.getItem('targetToEdit');
+    let localTotalPagesArray = JSON.parse(localStorage.getItem("storedPagesArray") || []);
+    //loops thru array of apges and displays data by pulling it form the target page only
+    for (let page of localTotalPagesArray){
+        if(page.id == targetPage){
+            page.title = pageTitle.value;
+            page.body = pageBody.value;
+            page.published = checkForCheckBoxValue(pagePublished);
+            page.metaTags = pageTags.value;
+            page.metaDescription = pageDescriptions.value;
+        }
+    }
 }
 
 function clearAllStorage() {
