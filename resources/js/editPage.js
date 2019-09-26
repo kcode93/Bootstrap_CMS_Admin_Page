@@ -18,8 +18,6 @@ saveChangesBtn.addEventListener('click', updatePageData);
 
 //Functions
 function onLoad() {
-    //implements CKEditor
-    //CKEDITOR.replace('editor1');
     setUserName();
 }
 

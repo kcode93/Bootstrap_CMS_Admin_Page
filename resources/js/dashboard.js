@@ -35,8 +35,6 @@ logOut.addEventListener('click', clearAllStorage);
 
 //Functions
 function onLoad(){
-    //implements CKEditor
-    CKEDITOR.replace( 'editor1' );
     setUserName();
     getSplittedCurrentDate()
 }
